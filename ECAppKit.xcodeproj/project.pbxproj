@@ -79,6 +79,7 @@
 		22C2DB5E14FB9ADC005D2E89 /* Test.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22C2DB5D14FB9ADC005D2E89 /* Test.bundle */; };
 		22E85D8515E42E7C00E67F50 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8415E42E7C00E67F50 /* libcrypto.dylib */; };
 		22E85D8715E42E8900E67F50 /* ECCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8615E42E8900E67F50 /* ECCore.framework */; };
+		22E85D8915E42F6D00E67F50 /* ECAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E85D8815E42F6C00E67F50 /* ECAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,7 +211,8 @@
 		22D55C4D14FB8D640052EA01 /* libECLoggingMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libECLoggingMac.a; path = ../ECLogging/build/Release/libECLoggingMac.a; sourceTree = "<group>"; };
 		22D55C4E14FB8D640052EA01 /* libECUnitTestsMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libECUnitTestsMac.a; path = ../ECUnitTests/build/Release/libECUnitTestsMac.a; sourceTree = "<group>"; };
 		22E85D8415E42E7C00E67F50 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libcrypto.dylib; sourceTree = DEVELOPER_DIR; };
-		22E85D8615E42E8900E67F50 /* ECCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ECCore.framework; path = "../../../../../../../../../../../Caches/DerivedData/timekeeper-cdbrayceoisycccsdfcpscnhxtzs/Build/Products/Debug/ECCore.framework"; sourceTree = "<group>"; };
+		22E85D8615E42E8900E67F50 /* ECCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ECCore.framework; path = "/Caches/DerivedData/timekeeper-cdbrayceoisycccsdfcpscnhxtzs/Build/Products/Debug/ECCore.framework"; sourceTree = "<absolute>"; };
+		22E85D8815E42F6C00E67F50 /* ECAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECAppKit.h; sourceTree = "<group>"; };
 		22EC40A61358A0D1005C1F1A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		22FAC46C132149E900103630 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -260,8 +262,6 @@
 		0867D691FE84028FC02AAC07 /* ECFoundation */ = {
 			isa = PBXGroup;
 			children = (
-				22E85D8615E42E8900E67F50 /* ECCore.framework */,
-				22E85D8415E42E7C00E67F50 /* libcrypto.dylib */,
 				2260A30B15DFD8FB0057C9DA /* Source */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -274,6 +274,8 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22E85D8615E42E8900E67F50 /* ECCore.framework */,
+				22E85D8415E42E7C00E67F50 /* libcrypto.dylib */,
 				2260A3A315DFE6860057C9DA /* ECUnitTests.framework */,
 				2260A39D15DFE2F00057C9DA /* IOKit.framework */,
 				2260A39715DFE2DC0057C9DA /* ECConfig.framework */,
@@ -419,6 +421,7 @@
 		22CA557F13DA09FF007E89E2 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
+				22E85D8815E42F6C00E67F50 /* ECAppKit.h */,
 				2204C7BD15E282BB00F71E15 /* ECAboutBoxController.h */,
 				2204C7BE15E282BB00F71E15 /* ECAboutBoxController.m */,
 				2204C7BF15E282BB00F71E15 /* ECAboutBoxInfoProvider.h */,
@@ -519,6 +522,7 @@
 				2204C82F15E282BB00F71E15 /* ECTextFieldCell.h in Headers */,
 				2204C83115E282BB00F71E15 /* ECTransparentWindow.h in Headers */,
 				2204C83315E282BB00F71E15 /* ECWhiteBorderButtonCell.h in Headers */,
+				22E85D8915E42F6D00E67F50 /* ECAppKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
