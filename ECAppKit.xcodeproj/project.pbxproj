@@ -80,6 +80,8 @@
 		22E85D8515E42E7C00E67F50 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8415E42E7C00E67F50 /* libcrypto.dylib */; };
 		22E85D8715E42E8900E67F50 /* ECCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8615E42E8900E67F50 /* ECCore.framework */; };
 		22E85D8915E42F6D00E67F50 /* ECAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E85D8815E42F6C00E67F50 /* ECAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22E85D9715E43BB400E67F50 /* ECAboutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22E85D9515E43BB400E67F50 /* ECAboutBox.xib */; };
+		22E85D9915E43BC200E67F50 /* finder support.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 22E85D9815E43BC200E67F50 /* finder support.scpt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +97,6 @@
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		220375D3141FF4B80040E740 /* ECFoundationIOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ECFoundationIOS.plist; sourceTree = "<group>"; };
 		2204C7BD15E282BB00F71E15 /* ECAboutBoxController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECAboutBoxController.h; sourceTree = "<group>"; };
 		2204C7BE15E282BB00F71E15 /* ECAboutBoxController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECAboutBoxController.m; sourceTree = "<group>"; };
 		2204C7BF15E282BB00F71E15 /* ECAboutBoxInfoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECAboutBoxInfoProvider.h; sourceTree = "<group>"; };
@@ -213,6 +214,8 @@
 		22E85D8415E42E7C00E67F50 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libcrypto.dylib; sourceTree = DEVELOPER_DIR; };
 		22E85D8615E42E8900E67F50 /* ECCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ECCore.framework; path = "/Caches/DerivedData/timekeeper-cdbrayceoisycccsdfcpscnhxtzs/Build/Products/Debug/ECCore.framework"; sourceTree = "<absolute>"; };
 		22E85D8815E42F6C00E67F50 /* ECAppKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECAppKit.h; sourceTree = "<group>"; };
+		22E85D9615E43BB400E67F50 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ECAboutBox.xib; sourceTree = "<group>"; };
+		22E85D9815E43BC200E67F50 /* finder support.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "finder support.scpt"; sourceTree = "<group>"; };
 		22EC40A61358A0D1005C1F1A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		22FAC46C132149E900103630 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -307,7 +310,8 @@
 			isa = PBXGroup;
 			children = (
 				2260A3AC15DFEF4F0057C9DA /* Info.plist */,
-				225409811354F25800DC8205 /* ios */,
+				22E85D9815E43BC200E67F50 /* finder support.scpt */,
+				22E85D9515E43BB400E67F50 /* ECAboutBox.xib */,
 				223CBAFB1205C7680008A641 /* tests */,
 			);
 			path = Resources;
@@ -377,15 +381,6 @@
 			);
 			name = tests;
 			path = resources/tests;
-			sourceTree = "<group>";
-		};
-		225409811354F25800DC8205 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				220375D3141FF4B80040E740 /* ECFoundationIOS.plist */,
-			);
-			name = ios;
-			path = iOS;
 			sourceTree = "<group>";
 		};
 		2260A30B15DFD8FB0057C9DA /* Source */ = {
@@ -603,6 +598,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E85D9715E43BB400E67F50 /* ECAboutBox.xib in Resources */,
+				22E85D9915E43BC200E67F50 /* finder support.scpt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +680,17 @@
 			targetProxy = 2260A3C315DFF7370057C9DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22E85D9515E43BB400E67F50 /* ECAboutBox.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22E85D9615E43BB400E67F50 /* en */,
+			);
+			name = ECAboutBox.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB91B208733DA50010E9CD /* Debug */ = {
