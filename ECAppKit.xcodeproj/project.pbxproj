@@ -12,14 +12,10 @@
 		2204C7FB15E282BB00F71E15 /* ECAboutBoxInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7BF15E282BB00F71E15 /* ECAboutBoxInfoProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C7FC15E282BB00F71E15 /* ECAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7C015E282BB00F71E15 /* ECAppDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C7FD15E282BB00F71E15 /* ECAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7C115E282BB00F71E15 /* ECAppDelegate.m */; };
-		2204C7FE15E282BB00F71E15 /* ECAquaticPrime.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7C215E282BB00F71E15 /* ECAquaticPrime.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2204C7FF15E282BB00F71E15 /* ECAquaticPrime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7C315E282BB00F71E15 /* ECAquaticPrime.m */; };
 		2204C80015E282BB00F71E15 /* ECCompletionTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7C415E282BB00F71E15 /* ECCompletionTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C80115E282BB00F71E15 /* ECCompletionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7C515E282BB00F71E15 /* ECCompletionTextView.m */; };
 		2204C80215E282BB00F71E15 /* ECCompoundLicenseChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7C615E282BB00F71E15 /* ECCompoundLicenseChecker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C80315E282BB00F71E15 /* ECCompoundLicenseChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7C715E282BB00F71E15 /* ECCompoundLicenseChecker.m */; };
-		2204C80415E282BB00F71E15 /* ECDebugMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7C815E282BB00F71E15 /* ECDebugMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2204C80515E282BB00F71E15 /* ECDebugMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7C915E282BB00F71E15 /* ECDebugMenu.m */; };
 		2204C80615E282BB00F71E15 /* ECDraggableArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7CA15E282BB00F71E15 /* ECDraggableArrayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C80715E282BB00F71E15 /* ECDraggableArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7CB15E282BB00F71E15 /* ECDraggableArrayController.m */; };
 		2204C80815E282BB00F71E15 /* ECDraggableFileArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7CC15E282BB00F71E15 /* ECDraggableFileArrayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -81,6 +77,8 @@
 		22C2DB5614FB98CB005D2E89 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2DB5514FB98CB005D2E89 /* IOKit.framework */; };
 		22C2DB5714FB98D7005D2E89 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C2DB5114FB98AA005D2E89 /* Security.framework */; };
 		22C2DB5E14FB9ADC005D2E89 /* Test.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22C2DB5D14FB9ADC005D2E89 /* Test.bundle */; };
+		22E85D8515E42E7C00E67F50 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8415E42E7C00E67F50 /* libcrypto.dylib */; };
+		22E85D8715E42E8900E67F50 /* ECCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8615E42E8900E67F50 /* ECCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +209,8 @@
 		22C2DBD814FB9F8A005D2E89 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		22D55C4D14FB8D640052EA01 /* libECLoggingMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libECLoggingMac.a; path = ../ECLogging/build/Release/libECLoggingMac.a; sourceTree = "<group>"; };
 		22D55C4E14FB8D640052EA01 /* libECUnitTestsMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libECUnitTestsMac.a; path = ../ECUnitTests/build/Release/libECUnitTestsMac.a; sourceTree = "<group>"; };
+		22E85D8415E42E7C00E67F50 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libcrypto.dylib; sourceTree = DEVELOPER_DIR; };
+		22E85D8615E42E8900E67F50 /* ECCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ECCore.framework; path = "../../../../../../../../../../../Caches/DerivedData/timekeeper-cdbrayceoisycccsdfcpscnhxtzs/Build/Products/Debug/ECCore.framework"; sourceTree = "<group>"; };
 		22EC40A61358A0D1005C1F1A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		22FAC46C132149E900103630 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -220,6 +220,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E85D8715E42E8900E67F50 /* ECCore.framework in Frameworks */,
+				22E85D8515E42E7C00E67F50 /* libcrypto.dylib in Frameworks */,
 				2260A39E15DFE2F00057C9DA /* IOKit.framework in Frameworks */,
 				2260A39A15DFE2DD0057C9DA /* ECConfig.framework in Frameworks */,
 				2260A39B15DFE2DD0057C9DA /* ECLogging.framework in Frameworks */,
@@ -258,6 +260,8 @@
 		0867D691FE84028FC02AAC07 /* ECFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				22E85D8615E42E8900E67F50 /* ECCore.framework */,
+				22E85D8415E42E7C00E67F50 /* libcrypto.dylib */,
 				2260A30B15DFD8FB0057C9DA /* Source */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -489,10 +493,8 @@
 				2204C7F915E282BB00F71E15 /* ECAboutBoxController.h in Headers */,
 				2204C7FB15E282BB00F71E15 /* ECAboutBoxInfoProvider.h in Headers */,
 				2204C7FC15E282BB00F71E15 /* ECAppDelegate.h in Headers */,
-				2204C7FE15E282BB00F71E15 /* ECAquaticPrime.h in Headers */,
 				2204C80015E282BB00F71E15 /* ECCompletionTextView.h in Headers */,
 				2204C80215E282BB00F71E15 /* ECCompoundLicenseChecker.h in Headers */,
-				2204C80415E282BB00F71E15 /* ECDebugMenu.h in Headers */,
 				2204C80615E282BB00F71E15 /* ECDraggableArrayController.h in Headers */,
 				2204C80815E282BB00F71E15 /* ECDraggableFileArrayController.h in Headers */,
 				2204C80A15E282BB00F71E15 /* ECFilledView.h in Headers */,
@@ -633,10 +635,8 @@
 			files = (
 				2204C7FA15E282BB00F71E15 /* ECAboutBoxController.m in Sources */,
 				2204C7FD15E282BB00F71E15 /* ECAppDelegate.m in Sources */,
-				2204C7FF15E282BB00F71E15 /* ECAquaticPrime.m in Sources */,
 				2204C80115E282BB00F71E15 /* ECCompletionTextView.m in Sources */,
 				2204C80315E282BB00F71E15 /* ECCompoundLicenseChecker.m in Sources */,
-				2204C80515E282BB00F71E15 /* ECDebugMenu.m in Sources */,
 				2204C80715E282BB00F71E15 /* ECDraggableArrayController.m in Sources */,
 				2204C80915E282BB00F71E15 /* ECDraggableFileArrayController.m in Sources */,
 				2204C80B15E282BB00F71E15 /* ECFilledView.m in Sources */,
@@ -697,6 +697,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2260A31015DFD96D0057C9DA /* MacDebug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Caches/DerivedData/timekeeper-cdbrayceoisycccsdfcpscnhxtzs/Build/Products/Debug\"",
+				);
 				GCC_PREFIX_HEADER = "Source/Prefix/$(PRODUCT_NAME)$(CONFIGURATION).pch";
 			};
 			name = Debug;
@@ -705,6 +709,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2260A31115DFD96D0057C9DA /* MacRelease.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Caches/DerivedData/timekeeper-cdbrayceoisycccsdfcpscnhxtzs/Build/Products/Debug\"",
+				);
 				GCC_PREFIX_HEADER = "Source/Prefix/$(PRODUCT_NAME)$(CONFIGURATION).pch";
 			};
 			name = Release;

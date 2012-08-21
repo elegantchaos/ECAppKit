@@ -8,10 +8,6 @@
 // --------------------------------------------------------------------------
 
 #import "ECDraggableArrayController.h"
-#import "ECLogging.h"
-#import "ECAssertion.h"
-
-#import "NSIndexSet+ECCore.h"
 
 #pragma mark - Private Methods
 

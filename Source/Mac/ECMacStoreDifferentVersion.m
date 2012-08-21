@@ -8,8 +8,6 @@
 #import "ECMacStoreDifferentVersion.h"
 #import "ECMacStoreReceipt.h"
 
-#import "ECMachine.h"
-
 
 @implementation ECMacStoreDifferentVersion
 

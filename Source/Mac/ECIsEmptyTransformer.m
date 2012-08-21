@@ -8,7 +8,6 @@
 // --------------------------------------------------------------------------
 
 #import "ECIsEmptyTransformer.h"
-#import "ECAssertion.h"
 
 @implementation ECIsEmptyTransformer
 

@@ -7,8 +7,6 @@
 
 #import "ECLicenseChecker.h"
 
-#import "NSApplication+ECCore.h"
-
 @implementation ECLicenseChecker
 
 - (BOOL) isValid

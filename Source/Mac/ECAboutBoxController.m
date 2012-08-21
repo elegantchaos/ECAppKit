@@ -10,9 +10,6 @@
 #import "ECAboutBoxController.h"
 #import "ECAboutBoxInfoProvider.h"
 
-#import "NSDictionary+ECCore.h"
-#import "NSBundle+ECCore.h"
-
 static NSString *const kDefaultStatus = @"test status";
 
 // --------------------------------------------------------------------------

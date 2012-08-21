@@ -6,8 +6,6 @@
 // --------------------------------------------------------------------------
 
 #import "ECMacStoreSaved.h"
-
-#import "ECMachine.h"
 #import "ECMacStoreReceipt.h"
 
 

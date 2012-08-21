@@ -8,12 +8,6 @@
 #import "ECMacStore.h"
 #import "ECMacStoreReceipt.h"
 
-#import "NSApplication+ECCore.h"
-#import "ECMachine.h"
-#import "ECKeychain.h"
-#import "NSFileManager+ECCore.h"
-#import "NSData+ECCore.h"
-
 // link with Foundation.framework, IOKit.framework, Security.framework and libCrypto (via -lcrypto in Other Linker Flags)
 
 @interface ECMacStore()

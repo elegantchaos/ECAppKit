@@ -9,8 +9,6 @@
 
 #import "ECTransparentWindow.h"
 
-#import "NSApplication+ECCore.h"
-
 @interface ECTransparentWindow()
 
 @property (nonatomic, assign) BOOL isLion;

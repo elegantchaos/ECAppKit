@@ -11,7 +11,6 @@
 // --------------------------------------------------------------------------
 
 #import "ECMacStoreReceipt.h"
-#import "ECKeychain.h"
 
 // link with Foundation.framework, IOKit.framework, Security.framework and libCrypto (via -lcrypto in Other Linker Flags)
 

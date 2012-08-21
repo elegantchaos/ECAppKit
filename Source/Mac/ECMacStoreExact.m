@@ -7,7 +7,6 @@
 
 #import "ECMacStoreExact.h"
 #import "ECMacStoreReceipt.h"
-#import "ECMachine.h"
 
 
 @implementation ECMacStoreExact
