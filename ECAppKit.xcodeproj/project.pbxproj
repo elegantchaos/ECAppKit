@@ -63,6 +63,7 @@
 		2204C83215E282BB00F71E15 /* ECTransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F615E282BB00F71E15 /* ECTransparentWindow.m */; };
 		2204C83315E282BB00F71E15 /* ECWhiteBorderButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7F715E282BB00F71E15 /* ECWhiteBorderButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C83415E282BB00F71E15 /* ECWhiteBorderButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */; };
+		2227BD1F15E4EF9F001DCE0D /* ECPreferencePane.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2227BD1E15E4EF9F001DCE0D /* ECPreferencePane.xcconfig */; };
 		2260A2EA15DFD7290057C9DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2283A3BB14F52E93009142F7 /* Cocoa.framework */; };
 		2260A39A15DFE2DD0057C9DA /* ECConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39715DFE2DC0057C9DA /* ECConfig.framework */; };
 		2260A39B15DFE2DD0057C9DA /* ECLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39815DFE2DD0057C9DA /* ECLogging.framework */; };
@@ -158,6 +159,7 @@
 		2204C7F715E282BB00F71E15 /* ECWhiteBorderButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECWhiteBorderButtonCell.h; sourceTree = "<group>"; };
 		2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECWhiteBorderButtonCell.m; sourceTree = "<group>"; };
 		221662E914FB9315009B975D /* ECCoreTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ECCoreTests.plist; path = Resources/Tests/ECCoreTests.plist; sourceTree = SOURCE_ROOT; };
+		2227BD1E15E4EF9F001DCE0D /* ECPreferencePane.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ECPreferencePane.xcconfig; sourceTree = "<group>"; };
 		2229674F1354EDC5005F42E7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		223CBAE61205C6380008A641 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22552BC7134B9E5300B8894E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -346,6 +348,7 @@
 				2260A31215DFD96D0057C9DA /* MacUnitTestDebug.xcconfig */,
 				2260A31315DFD96D0057C9DA /* MacUnitTestRelease.xcconfig */,
 				2260A39615DFDC600057C9DA /* Shared.xcconfig */,
+				2227BD1E15E4EF9F001DCE0D /* ECPreferencePane.xcconfig */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 			files = (
 				22E85D9715E43BB400E67F50 /* ECAboutBox.xib in Resources */,
 				22E85D9915E43BC200E67F50 /* finder support.scpt in Resources */,
+				2227BD1F15E4EF9F001DCE0D /* ECPreferencePane.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

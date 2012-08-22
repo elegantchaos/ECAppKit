@@ -1,0 +1,17 @@
+// --------------------------------------------------------------------------
+//  Copyright 2012 Sam Deane, Elegant Chaos. All rights reserved.
+//  This source code is distributed under the terms of Elegant Chaos's
+//  liberal license: http://www.elegantchaos.com/license/liberal
+// --------------------------------------------------------------------------
+
+#include "NeuShared.xcconfig"
+
+WRAPPER_EXTENSION = preferencePane
+
+GCC_PREFIX_HEADER = source/shared/Prefix/$(CONFIGURATION)Prefix.pch
+
+PRODUCT_NAME=$(TARGET_NAME)
+INFOPLIST_FILE = source/preferences/$(PRODUCT_NAME)/resources/info.plist
+
+OTHER_LDFLAGS = -undefined dynamic_lookup
+LD_RUNPATH_SEARCH_PATHS = @loaderpath/Contents/MacOS
