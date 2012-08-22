@@ -8,3 +8,13 @@
 
 #import "ECAboutBoxController.h"
 #import "ECAppDelegate.h"
+#import "ECPreferencePanel.h"
+#import "ECPreferencesController.h"
+#import "ECMacStore.h"
+#import "ECMacStoreSaved.h"
+#import "ECAboutBoxController.h"
+#import "ECDraggableFileArrayController.h"
+#import "ECTextFieldCell.h"
+#import "ECLicenseChecker.h"
+#import "ECCompoundLicenseChecker.h"
+#import "ECMacStoreDifferentVersion.h"
