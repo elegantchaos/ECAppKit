@@ -339,7 +339,7 @@ static NSString *const UserGuideType = @"pdf";
     [compoundChecker addChecker: exactChecker];
     [exactChecker release];
     
-#if CHECK_FOR_TEST_RECEIPT
+#if EC_DEBUG
     // look for saved MAS receipt with different version
     ECMacStoreDifferentVersion* differentVersionChecker = [[ECMacStoreDifferentVersion alloc] init];
     [compoundChecker addChecker: differentVersionChecker];
