@@ -18,3 +18,6 @@
 #import "ECLicenseChecker.h"
 #import "ECCompoundLicenseChecker.h"
 #import "ECMacStoreDifferentVersion.h"
+#import "ECGradientTextView.h"
+#import "ECRoundedView.h"
+#import "ECCompletionTextView.h"
