@@ -55,8 +55,6 @@
 		2204C82A15E282BB00F71E15 /* ECRoundedImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7EE15E282BB00F71E15 /* ECRoundedImageCell.m */; };
 		2204C82B15E282BB00F71E15 /* ECRoundedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7EF15E282BB00F71E15 /* ECRoundedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C82C15E282BB00F71E15 /* ECRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F015E282BB00F71E15 /* ECRoundedView.m */; };
-		2204C82D15E282BB00F71E15 /* ECSparklePreferenceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7F115E282BB00F71E15 /* ECSparklePreferenceController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2204C82E15E282BB00F71E15 /* ECSparklePreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F215E282BB00F71E15 /* ECSparklePreferenceController.m */; };
 		2204C82F15E282BB00F71E15 /* ECTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7F315E282BB00F71E15 /* ECTextFieldCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C83015E282BB00F71E15 /* ECTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F415E282BB00F71E15 /* ECTextFieldCell.m */; };
 		2204C83115E282BB00F71E15 /* ECTransparentWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7F515E282BB00F71E15 /* ECTransparentWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -150,8 +148,6 @@
 		2204C7EE15E282BB00F71E15 /* ECRoundedImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECRoundedImageCell.m; sourceTree = "<group>"; };
 		2204C7EF15E282BB00F71E15 /* ECRoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECRoundedView.h; sourceTree = "<group>"; };
 		2204C7F015E282BB00F71E15 /* ECRoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECRoundedView.m; sourceTree = "<group>"; };
-		2204C7F115E282BB00F71E15 /* ECSparklePreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSparklePreferenceController.h; sourceTree = "<group>"; };
-		2204C7F215E282BB00F71E15 /* ECSparklePreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSparklePreferenceController.m; sourceTree = "<group>"; };
 		2204C7F315E282BB00F71E15 /* ECTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTextFieldCell.h; sourceTree = "<group>"; };
 		2204C7F415E282BB00F71E15 /* ECTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTextFieldCell.m; sourceTree = "<group>"; };
 		2204C7F515E282BB00F71E15 /* ECTransparentWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTransparentWindow.h; sourceTree = "<group>"; };
@@ -464,8 +460,6 @@
 				2204C7EE15E282BB00F71E15 /* ECRoundedImageCell.m */,
 				2204C7EF15E282BB00F71E15 /* ECRoundedView.h */,
 				2204C7F015E282BB00F71E15 /* ECRoundedView.m */,
-				2204C7F115E282BB00F71E15 /* ECSparklePreferenceController.h */,
-				2204C7F215E282BB00F71E15 /* ECSparklePreferenceController.m */,
 				2204C7F315E282BB00F71E15 /* ECTextFieldCell.h */,
 				2204C7F415E282BB00F71E15 /* ECTextFieldCell.m */,
 				2204C7F515E282BB00F71E15 /* ECTransparentWindow.h */,
@@ -508,7 +502,6 @@
 				2204C82715E282BB00F71E15 /* ECPreferencesController.h in Headers */,
 				2204C82915E282BB00F71E15 /* ECRoundedImageCell.h in Headers */,
 				2204C82B15E282BB00F71E15 /* ECRoundedView.h in Headers */,
-				2204C82D15E282BB00F71E15 /* ECSparklePreferenceController.h in Headers */,
 				2204C82F15E282BB00F71E15 /* ECTextFieldCell.h in Headers */,
 				2204C83115E282BB00F71E15 /* ECTransparentWindow.h in Headers */,
 				2204C83315E282BB00F71E15 /* ECWhiteBorderButtonCell.h in Headers */,
@@ -653,7 +646,6 @@
 				2204C82815E282BB00F71E15 /* ECPreferencesController.m in Sources */,
 				2204C82A15E282BB00F71E15 /* ECRoundedImageCell.m in Sources */,
 				2204C82C15E282BB00F71E15 /* ECRoundedView.m in Sources */,
-				2204C82E15E282BB00F71E15 /* ECSparklePreferenceController.m in Sources */,
 				2204C83015E282BB00F71E15 /* ECTextFieldCell.m in Sources */,
 				2204C83215E282BB00F71E15 /* ECTransparentWindow.m in Sources */,
 				2204C83415E282BB00F71E15 /* ECWhiteBorderButtonCell.m in Sources */,
