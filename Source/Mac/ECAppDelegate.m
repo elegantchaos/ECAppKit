@@ -69,9 +69,16 @@ static NSString *const UserGuideType = @"pdf";
 {
 	self.fileManager = [NSFileManager defaultManager];
 	
-    ECLogManager* lm = [ECLogManager sharedInstance];
-	[self installLogHandlers];
-    [lm startup];
+    [ECLogManager startupWithHandlerNames:@[@"ECLogHandlerNSLog", @"ECLogHandlerStdout", @"ECLogHandlerStderr", @"ECErrorPresenterHandler"]];
+}
+
+// --------------------------------------------------------------------------
+//! Make sure setting are saved when we switch to the background.
+// --------------------------------------------------------------------------
+
+- (void)applicationWillResignActive:(NSNotification *)notification
+{
+	[[ECLogManager sharedInstance] saveChannelSettings];
 }
 
 // --------------------------------------------------------------------------
