@@ -33,7 +33,6 @@
 
 - (ECPreferencesController*)	getCachedPreferencesController;
 - (NSArray*)					getPreferencePanes;
-- (void)                        installLogHandlers;
 - (BOOL)                        setupMacStore;
 - (void)                        stripElegantChaosStoreItemsFromMenu: (NSMenu*) menu;
 - (void)                        stripSparkleItemsFromMenu: (NSMenu*) menu;

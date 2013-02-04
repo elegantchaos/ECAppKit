@@ -70,7 +70,6 @@ static NSString *const UserGuideType = @"pdf";
 	self.fileManager = [NSFileManager defaultManager];
 	
     ECLogManager* lm = [ECLogManager sharedInstance];
-	[self installLogHandlers];
     [lm startup];
 }
 
@@ -104,31 +103,6 @@ static NSString *const UserGuideType = @"pdf";
 }
 
 #pragma mark - Logging
-
-// --------------------------------------------------------------------------
-//! Install Standard Log Handlers.
-// --------------------------------------------------------------------------
-
-- (void) installLogHandlers
-{
-    ECLogManager* lm = [ECLogManager sharedInstance];
-
-	ECLogHandler* nslogHandler = [[ECLogHandlerNSLog alloc] init];
-	[lm registerHandler: nslogHandler];
-	[nslogHandler release];
-    
-	ECLogHandler* stdoutHandler = [[ECLogHandlerStdout alloc] init];
-	[lm registerHandler: stdoutHandler];
-	[stdoutHandler release];
-
-    ECLogHandler* stderrHandler = [[ECLogHandlerStderr alloc] init];
-	[lm registerHandler: stderrHandler];
-	[stderrHandler release];
-
-	ECErrorPresenterHandler* errorPresenterHandler = [[ECErrorPresenterHandler alloc] init];
-	[lm registerHandler: errorPresenterHandler];
-	[errorPresenterHandler release];
-}
 
 // --------------------------------------------------------------------------
 //! Open the main product website.
