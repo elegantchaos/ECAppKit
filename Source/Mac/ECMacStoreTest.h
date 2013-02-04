@@ -2,7 +2,7 @@
 //! @author Sam Deane
 //! @date 17/11/2010
 //
-//  Copyright 2012 Sam Deane, Elegant Chaos. All rights reserved.
+//  Copyright 2013 Sam Deane, Elegant Chaos. All rights reserved.
 // --------------------------------------------------------------------------
 
 #import "ECMacStore.h"
