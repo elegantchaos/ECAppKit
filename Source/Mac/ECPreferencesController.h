@@ -22,16 +22,15 @@
     NSToolbar *prefsToolbar;
     NSMutableDictionary *prefsToolbarItems;
 
-    NSToolbarDisplayMode toolbarDisplayMode;
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_2
-    NSToolbarSizeMode toolbarSizeMode;
-#endif
-    BOOL usesTexturedWindow;
-    BOOL alwaysShowsToolbar;
-    BOOL alwaysOpensCentered;
-    
-    BOOL debug;
+
+
 }
+
+@property (assign, nonatomic) BOOL usesTexturedWindow;
+@property (assign, nonatomic) BOOL alwaysShowsToolbar;
+@property (assign, nonatomic) BOOL alwaysOpensCentered;
+@property (assign, nonatomic) NSToolbarDisplayMode toolbarDisplayMode;
+@property (assign, nonatomic) NSToolbarSizeMode toolbarSizeMode;
 
 // Convenience constructors
 + (id)preferencesWithPanesSearchPath:(NSString*)path bundleExtension:(NSString *)ext;
@@ -52,7 +51,6 @@
 - (BOOL)loadPrefsPaneNamed:(NSString *)name display:(BOOL)disp;
 - (BOOL)loadPreferencePaneNamed:(NSString *)name;
 - (void)activatePane:(NSString*)path;
-- (void)debugLog:(NSString*)msg;
 
 float ToolbarHeightForWindow(NSWindow *window);
 - (void)createPrefsToolbar;
@@ -66,19 +64,5 @@ float ToolbarHeightForWindow(NSWindow *window);
 - (NSArray *)loadedPanes;
 - (NSArray *)panesOrder;
 - (void)setPanesOrder:(NSArray *)newPanesOrder;
-- (BOOL)debug;
-- (void)setDebug:(BOOL)newDebug;
-- (BOOL)usesTexturedWindow;
-- (void)setUsesTexturedWindow:(BOOL)newUsesTexturedWindow;
-- (BOOL)alwaysShowsToolbar;
-- (void)setAlwaysShowsToolbar:(BOOL)newAlwaysShowsToolbar;
-- (BOOL)alwaysOpensCentered;
-- (void)setAlwaysOpensCentered:(BOOL)newAlwaysOpensCentered;
-- (NSToolbarDisplayMode)toolbarDisplayMode;
-- (void)setToolbarDisplayMode:(NSToolbarDisplayMode)displayMode;
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_2
-- (NSToolbarSizeMode)toolbarSizeMode;
-- (void)setToolbarSizeMode:(NSToolbarSizeMode)sizeMode;
-#endif
 
 @end

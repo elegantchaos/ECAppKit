@@ -13,19 +13,13 @@
 
 @implementation ECPreferencesController
 
+ECDefineDebugChannel(ECPreferencesChannel);
+
 #define Last_Pane_Defaults_Key	[[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@"_Preferences_Last_Pane_Defaults_Key"]
 
 // ************************************************
 // version/init/dealloc/constructors
 // ************************************************
-
-
-+ (NSInteger)version
-{
-    // Version 1 was released on 28th June 2003.
-    // Version 2 was released on 14th November 2007.
-    return 2;
-}
 
 
 + (id)preferencesWithPanesSearchPath:(NSString*)path bundleExtension:(NSString *)ext
@@ -75,14 +69,11 @@
 {
     if ((self = [super init]) != nil)
 	{
-        [self setDebug:NO];
         preferencePanes = [[NSMutableDictionary alloc] init];
         panesOrder = [[NSMutableArray alloc] init];
         
         [self setToolbarDisplayMode:NSToolbarDisplayModeIconAndLabel];
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_2
         [self setToolbarSizeMode:NSToolbarSizeModeDefault];
-#endif
         [self setUsesTexturedWindow:NO];
         [self setAlwaysShowsToolbar:NO];
         [self setAlwaysOpensCentered:YES];
@@ -101,9 +92,8 @@
         
         // Read PreferencePanes
         if (searchPath) {
-            NSEnumerator* enumerator = [[NSBundle pathsForResourcesOfType:bundleExtension inDirectory:searchPath] objectEnumerator];
-            NSString* panePath;
-            while ((panePath = [enumerator nextObject])) {
+			for (NSString* panePath in [NSBundle pathsForResourcesOfType:bundleExtension inDirectory:searchPath])
+			{
                 [self activatePane:panePath];
             }
         }
@@ -115,27 +105,14 @@
 
 - (void)dealloc
 {
-    if (prefsWindow) {
-        [prefsWindow release];
-    }
-    if (prefsToolbar) {
-        [prefsToolbar release];
-    }
-    if (prefsToolbarItems) {
-        [prefsToolbarItems release];
-    }
-    if (preferencePanes) {
-        [preferencePanes release];
-    }
-    if (panesOrder) {
-        [panesOrder release];
-    }
-    if (bundleExtension) {
-        [bundleExtension release];
-    }
-    if (searchPath) {
-        [searchPath release];
-    }
+	[prefsWindow release];
+	[prefsToolbar release];
+	[prefsToolbarItems release];
+	[preferencePanes release];
+	[panesOrder release];
+	[bundleExtension release];
+	[searchPath release];
+
     [super dealloc];
 }
 
@@ -160,7 +137,7 @@
 - (void)createPreferencesWindowAndDisplay:(BOOL)shouldDisplay
 {
     if (prefsWindow) {
-        if (alwaysOpensCentered && ![prefsWindow isVisible]) {
+        if (self.alwaysOpensCentered && ![prefsWindow isVisible]) {
             [prefsWindow center];
         }
         [prefsWindow makeKeyAndOrderFront:nil];
@@ -169,7 +146,7 @@
     
     // Create prefs window
     unsigned int styleMask = (NSTitledWindowMask | NSClosableWindowMask | NSResizableWindowMask);
-    if (usesTexturedWindow) {
+    if (self.usesTexturedWindow) {
         styleMask = (styleMask | NSTexturedBackgroundWindowMask);
     }
     prefsWindow = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, 350, 200)
@@ -203,12 +180,10 @@
         return;
     }
 	
-    [self debugLog:[NSString stringWithFormat:@"Could not load last-used preference pane \"%@\". Trying to load another pane instead.", lastViewName]];
+    ECDebug(ECPreferencesChannel, @"Could not load last-used preference pane \"%@\". Trying to load another pane instead.", lastViewName);
     
     // Try to load each prefpane in turn if loading the last-viewed one fails.
-    NSEnumerator* panes = [panesOrder objectEnumerator];
-    NSString *pane;
-    while ((pane = [panes nextObject]) != nil)
+		for (NSString* pane in panesOrder)
 	{
         if (![pane isEqualToString:lastViewName]) {
             if ([self loadPrefsPaneNamed:pane display:NO]) {
@@ -220,7 +195,7 @@
         }
     }
 	
-    [self debugLog:[NSString stringWithFormat:@"Could not load any valid preference panes. The preference pane bundle extension was \"%@\" and the search path was: %@", bundleExtension, searchPath]];
+    ECDebug(ECPreferencesChannel, @"Could not load any valid preference panes. The preference pane bundle extension was \"%@\" and the search path was: %@", bundleExtension, searchPath);
     
     // Show alert dialog.
     NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
@@ -256,25 +231,22 @@
                 if ([paneClass conformsToProtocol:@protocol(ECPreferencePaneProtocol)] && [paneClass isKindOfClass:[NSObject class]]) {
                     NSArray *panes = [paneClass preferencePanes];
                     
-                    NSEnumerator *enumerator = [panes objectEnumerator];
-                    id <ECPreferencePaneProtocol> aPane;
-                    
-                    while ((aPane = [enumerator nextObject]) != nil)
+                    for (id <ECPreferencePaneProtocol> aPane in panes)
 					{
                         [panesOrder addObject:[aPane paneName]];
                         [preferencePanes setObject:aPane forKey:[aPane paneName]];
                     }
                 } else {
-                    [self debugLog:[NSString stringWithFormat:@"Did not load bundle: %@ because its Principal Class is either not an NSObject subclass, or does not conform to the PreferencePane Protocol.", paneBundle]];
+                    ECDebug(ECPreferencesChannel, @"Did not load bundle: %@ because its Principal Class is either not an NSObject subclass, or does not conform to the PreferencePane Protocol.", paneBundle);
                 }
             } else {
-                [self debugLog:[NSString stringWithFormat:@"Did not load bundle: %@ because its Principal Class was already used in another Preference pane.", paneBundle]];
+                ECDebug(ECPreferencesChannel, @"Did not load bundle: %@ because its Principal Class was already used in another Preference pane.", paneBundle);
             }
         } else {
-            [self debugLog:[NSString stringWithFormat:@"Could not obtain name of Principal Class for bundle: %@", paneBundle]];
+            ECDebug(ECPreferencesChannel, @"Could not obtain name of Principal Class for bundle: %@", paneBundle);
         }
     } else {
-        [self debugLog:[NSString stringWithFormat:@"Could not initialize bundle: %@", paneBundle]];
+        ECDebug(ECPreferencesChannel, @"Could not initialize bundle: %@", paneBundle);
     }
 }
 
@@ -298,21 +270,21 @@
 {
     if (!prefsWindow) {
         NSBeep();
-        [self debugLog:[NSString stringWithFormat:@"Could not load \"%@\" preference pane because the Preferences window seems to no longer exist.", name]];
+        ECDebug(ECPreferencesChannel, @"Could not load \"%@\" preference pane because the Preferences window seems to no longer exist.", name);
         return NO;
     }
 	
     id tempPane = nil;
     tempPane = [preferencePanes objectForKey:name];
     if (!tempPane) {
-        [self debugLog:[NSString stringWithFormat:@"Could not load preference pane \"%@\", because that pane does not exist.", name]];
+        ECDebug(ECPreferencesChannel, @"Could not load preference pane \"%@\", because that pane does not exist.", name);
         return NO;
     }
     
     NSView *prefsView = nil;
     prefsView = [tempPane paneView];
     if (!prefsView) {
-        [self debugLog:[NSString stringWithFormat:@"Could not load \"%@\" preference pane because its view could not be loaded from the bundle.", name]];
+        ECDebug(ECPreferencesChannel, @"Could not load \"%@\" preference pane because its view could not be loaded from the bundle.", name);
         return NO;
     }
     
@@ -355,7 +327,7 @@
     [prefsWindow setShowsResizeIndicator:canResize];
 	
 	NSString* app = [[[NSBundle mainBundle] infoDictionary] objectForKey: @"CFBundleName"];
-    if ((prefsToolbarItems && ([prefsToolbarItems count] > 1)) || alwaysShowsToolbar) 
+    if ((prefsToolbarItems && ([prefsToolbarItems count] > 1)) || self.alwaysShowsToolbar)
 	{
         [prefsWindow setTitle: [NSString stringWithFormat: @"%@ - %@", app, name]];
     }
@@ -372,14 +344,6 @@
 	[prefsWindow setInitialFirstResponder: nextKey];
 	
     return YES;
-}
-
-
-- (void)debugLog:(NSString*)msg
-{
-    if (debug) {
-        NSLog(@"[--- PREFERENCES DEBUG MESSAGE ---]\r%@\r\r", msg);
-    }
 }
 
 
@@ -411,11 +375,8 @@ float ToolbarHeightForWindow(NSWindow *window)
 {
     // Create toolbar items
     prefsToolbarItems = [[NSMutableDictionary alloc] init];
-    NSEnumerator *itemEnumerator = [panesOrder objectEnumerator];
-    NSString *name;
     NSImage *itemImage;
-    
-    while ((name = [itemEnumerator nextObject]) != nil)
+    for (NSString* name in panesOrder)
 	{
         if ([preferencePanes objectForKey:name] != nil) 
 		{
@@ -436,7 +397,7 @@ float ToolbarHeightForWindow(NSWindow *window)
             [prefsToolbarItems setObject:item forKey:name]; // add to items
             [item release];
         } else {
-            [self debugLog:[NSString stringWithFormat:@"Could not create toolbar item for preference pane \"%@\", because that pane does not exist.", name]];
+            ECDebug(ECPreferencesChannel, @"Could not create toolbar item for preference pane \"%@\", because that pane does not exist.", name);
         }
     }
     
@@ -446,42 +407,17 @@ float ToolbarHeightForWindow(NSWindow *window)
     [prefsToolbar setDelegate:self];
     [prefsToolbar setAllowsUserCustomization:NO];
     [prefsToolbar setAutosavesConfiguration:NO];
-    [prefsToolbar setDisplayMode:toolbarDisplayMode];
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_2
-    [prefsToolbar setSizeMode:toolbarSizeMode];
-#endif
-    if ((prefsToolbarItems && ([prefsToolbarItems count] > 1)) || alwaysShowsToolbar) {
+    [prefsToolbar setDisplayMode:self.toolbarDisplayMode];
+    [prefsToolbar setSizeMode:self.toolbarSizeMode];
+
+    if ((prefsToolbarItems && ([prefsToolbarItems count] > 1)) || self.alwaysShowsToolbar) {
         [prefsWindow setToolbar:prefsToolbar];
-    } else if (!alwaysShowsToolbar && prefsToolbarItems && ([prefsToolbarItems count] == 1)) {
-        [self debugLog:@"Not showing toolbar in Preferences window because there is only one preference pane loaded. You can override this behaviour using -[setAlwaysShowsToolbar:YES]."];
+    } else if (!self.alwaysShowsToolbar && prefsToolbarItems && ([prefsToolbarItems count] == 1))
+	{
+		ECDebug(ECPreferencesChannel, @"Not showing toolbar in Preferences window because there is only one preference pane loaded. You can override this behaviour using -[setAlwaysShowsToolbar:YES].");
     }
 }
 
-
-- (NSToolbarDisplayMode)toolbarDisplayMode
-{
-    return toolbarDisplayMode;
-}
-
-
-- (void)setToolbarDisplayMode:(NSToolbarDisplayMode)displayMode
-{
-    toolbarDisplayMode = displayMode;
-}
-
-
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_2
-- (NSToolbarSizeMode)toolbarSizeMode
-{
-    return toolbarSizeMode;
-}
-
-
-- (void)setToolbarSizeMode:(NSToolbarSizeMode)sizeMode
-{
-    toolbarSizeMode = sizeMode;
-}
-#endif
 
 
 - (void)prefsToolbarItemClicked:(NSToolbarItem*)item
@@ -549,10 +485,7 @@ float ToolbarHeightForWindow(NSWindow *window)
 {
     [panesOrder removeAllObjects];
 	
-    NSEnumerator *enumerator = [newPanesOrder objectEnumerator];
-    NSString *name;
-    
-    while ((name = [enumerator nextObject]) != nil)
+    for (NSString* name in newPanesOrder)
 	{
         if ([preferencePanes objectForKey:name] != nil) 
 		{
@@ -560,58 +493,11 @@ float ToolbarHeightForWindow(NSWindow *window)
         }
 		else
 		{
-            [self debugLog:[NSString stringWithFormat:@"Did not add preference pane \"%@\" to the toolbar ordering array, because that pane does not exist.", name]];
+            ECDebug(ECPreferencesChannel, @"Did not add preference pane \"%@\" to the toolbar ordering array, because that pane does not exist.", name);
         }
     }
 }
 
-
-- (BOOL)debug
-{
-    return debug;
-}
-
-
-- (void)setDebug:(BOOL)newDebug
-{
-    debug = newDebug;
-}
-
-
-- (BOOL)usesTexturedWindow
-{
-    return usesTexturedWindow;
-}
-
-
-- (void)setUsesTexturedWindow:(BOOL)newUsesTexturedWindow
-{
-    usesTexturedWindow = newUsesTexturedWindow;
-}
-
-
-- (BOOL)alwaysShowsToolbar
-{
-    return alwaysShowsToolbar;
-}
-
-
-- (void)setAlwaysShowsToolbar:(BOOL)newAlwaysShowsToolbar
-{
-    alwaysShowsToolbar = newAlwaysShowsToolbar;
-}
-
-
-- (BOOL)alwaysOpensCentered
-{
-    return alwaysOpensCentered;
-}
-
-
-- (void)setAlwaysOpensCentered:(BOOL)newAlwaysOpensCentered
-{
-    alwaysOpensCentered = newAlwaysOpensCentered;
-}
 
 
 // --------------------------------------------------------------------------
