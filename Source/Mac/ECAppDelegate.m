@@ -74,6 +74,15 @@ static NSString *const UserGuideType = @"pdf";
 }
 
 // --------------------------------------------------------------------------
+//! Make sure setting are saved when we switch to the background.
+// --------------------------------------------------------------------------
+
+- (void)applicationWillResignActive:(NSNotification *)notification
+{
+	[[ECLogManager sharedInstance] saveChannelSettings];
+}
+
+// --------------------------------------------------------------------------
 //! Clean up before the application dies.
 // --------------------------------------------------------------------------
 
@@ -313,7 +322,7 @@ static NSString *const UserGuideType = @"pdf";
     [compoundChecker addChecker: exactChecker];
     [exactChecker release];
     
-#if CHECK_FOR_TEST_RECEIPT
+#if EC_DEBUG
     // look for saved MAS receipt with different version
     ECMacStoreDifferentVersion* differentVersionChecker = [[ECMacStoreDifferentVersion alloc] init];
     [compoundChecker addChecker: differentVersionChecker];
