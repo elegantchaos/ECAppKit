@@ -9,5 +9,6 @@
 #ifdef __OBJC__
 
 #import <ECCore/ECCore.h>
-#import <ECPreferencesController/ECPreferencesController.h>
+#import <ECPreferencesWindow/ECPreferencesWindow.h>
+
 #endif

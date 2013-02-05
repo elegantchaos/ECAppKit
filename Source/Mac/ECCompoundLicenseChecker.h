@@ -13,7 +13,7 @@
 	NSMutableArray* checkers;
 }
 
-@property (nonatomic, retain) NSMutableArray* checkers;
+@property (strong, nonatomic) NSMutableArray* checkers;
 
 - (BOOL)            isValid;
 - (NSDictionary*)   info;

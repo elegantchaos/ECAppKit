@@ -17,7 +17,7 @@
 // Properties
 // --------------------------------------------------------------------------
 
-@property (nonatomic, retain) NSGradient* gradient;
-@property (nonatomic, assign) CGFloat radius;
+@property (strong, nonatomic) NSGradient* gradient;
+@property (assign, nonatomic) CGFloat radius;
 
 @end

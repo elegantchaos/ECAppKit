@@ -9,10 +9,10 @@
 
 @interface ECCompletionTextView()
 
-@property (nonatomic, retain) NSTimer* completionTimer;
-@property (nonatomic, retain) NSCharacterSet* whitespace;
-@property (nonatomic, assign) NSUInteger nextInsertionIndex;
-@property (nonatomic, assign) BOOL completing;
+@property (strong, nonatomic) NSTimer* completionTimer;
+@property (strong, nonatomic) NSCharacterSet* whitespace;
+@property (assign, nonatomic) NSUInteger nextInsertionIndex;
+@property (assign, nonatomic) BOOL completing;
 
 - (void)setupWhitespace;
 

@@ -25,8 +25,8 @@
 // Public Properties
 // --------------------------------------------------------------------------
 
-@property (nonatomic, retain) ECMacStoreReceipt* receipt;
-@property (nonatomic, retain) NSString* status;
+@property (strong, nonatomic) ECMacStoreReceipt* receipt;
+@property (strong, nonatomic) NSString* status;
 
 // --------------------------------------------------------------------------
 // Public Methods

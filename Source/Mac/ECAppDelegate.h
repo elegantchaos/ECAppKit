@@ -19,20 +19,18 @@
 // Public Properties
 // --------------------------------------------------------------------------
 
-@property (nonatomic, retain) ECAboutBoxController* aboutController;
+@property (strong, nonatomic) ECAboutBoxController* aboutController;
 @property (nonatomic, assign) IBOutlet NSMenu* applicationMenu;
 @property (nonatomic, assign) IBOutlet NSMenu* dockMenu;
 @property (nonatomic, assign) NSFileManager* fileManager;
-@property (nonatomic, retain) ECLicenseChecker* licenseChecker;
-@property (nonatomic, retain) ECPWController* preferencesController;
+@property (strong, nonatomic) ECLicenseChecker* licenseChecker;
+@property (strong, nonatomic) ECPWController* preferencesController;
 @property (nonatomic, assign) IBOutlet NSMenu* statusMenu;
 
 // --------------------------------------------------------------------------
 // Public Methods
 // --------------------------------------------------------------------------
 
-- (ECPWController*)				getCachedPreferencesController;
-- (NSArray*)					getPreferencePanes;
 - (BOOL)                        setupMacStore;
 - (void)                        stripElegantChaosStoreItemsFromMenu: (NSMenu*) menu;
 - (void)                        stripSparkleItemsFromMenu: (NSMenu*) menu;

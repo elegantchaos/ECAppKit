@@ -12,10 +12,10 @@ ECDeclareDebugChannel(ECDraggableArrayControllerChannel);
 
 @interface ECDraggableArrayController : NSArrayController<NSCollectionViewDelegate>
 
-@property (nonatomic, assign) BOOL canCopy;
-@property (nonatomic, retain) IBOutlet NSCollectionView* collection;
-@property (nonatomic, retain) NSArray* supportedTypes;
-@property (nonatomic, retain) IBOutlet NSTableView* table;
+@property (assign, nonatomic) BOOL canCopy;
+@property (strong, nonatomic) IBOutlet NSCollectionView* collection;
+@property (strong, nonatomic) NSArray* supportedTypes;
+@property (strong, nonatomic) IBOutlet NSTableView* table;
 
 // --------------------------------------------------------------------------
 // Methods That Subclasses Can Extend (should call super)

@@ -16,7 +16,7 @@
 // Public Properties
 // --------------------------------------------------------------------------
 
-@property (nonatomic, retain) NSDictionary* info;
+@property (strong, nonatomic) NSDictionary* info;
 
 // --------------------------------------------------------------------------
 // Public Methods

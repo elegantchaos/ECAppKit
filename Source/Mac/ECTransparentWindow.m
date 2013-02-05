@@ -11,7 +11,7 @@
 
 @interface ECTransparentWindow()
 
-@property (nonatomic, assign) BOOL isLion;
+@property (assign, nonatomic) BOOL isLion;
 
 @end
 

@@ -11,7 +11,7 @@
 
 @interface ECRoundedView()
 
-@property (nonatomic, retain) NSBezierPath* path;
+@property (strong, nonatomic) NSBezierPath* path;
 
 - (void)makePathForRect:(CGRect)rect;
 

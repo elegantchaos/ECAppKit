@@ -34,22 +34,14 @@ static NSString *const UserGuideType = @"pdf";
 
 #pragma mark - Properties
 
-@synthesize aboutController;
-@synthesize applicationMenu;
-@synthesize dockMenu;
-@synthesize fileManager;
-@synthesize licenseChecker;
-@synthesize preferencesController;
-@synthesize statusMenu;
-
 
 #pragma mark - Lifecycle
 
 - (void) dealloc
 {
-    [aboutController release];
-    [preferencesController release];
-    [licenseChecker release];
+    [_aboutController release];
+    [_preferencesController release];
+    [_licenseChecker release];
 
     [super dealloc];
 }
@@ -67,7 +59,8 @@ static NSString *const UserGuideType = @"pdf";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
 	self.fileManager = [NSFileManager defaultManager];
-	
+	self.preferencesController = [ECPWController preferencesWindowController];
+
     ECLogManager* lm = [ECLogManager sharedInstance];
     [lm startup];
 }
@@ -170,9 +163,8 @@ static NSString *const UserGuideType = @"pdf";
 
 - (IBAction)showPreferences:(id)sender
 {
-    ECPWController* prefs = [self getCachedPreferencesController];
 	[NSApp activateIgnoringOtherApps:YES];
-    [prefs showPreferencesWindow];
+    [self.preferencesController showPreferencesWindow];
 }
 
 // --------------------------------------------------------------------------
@@ -192,46 +184,6 @@ static NSString *const UserGuideType = @"pdf";
 	[NSApp activateIgnoringOtherApps:YES];
 	[about showAboutBox];
 }
-
-
-// --------------------------------------------------------------------------
-//! Get the preferences controller - make it if necessary.
-// --------------------------------------------------------------------------
-
-- (ECPWController*)preferencesController
-{
-    if (!_preferencesController)
-	{
-        // Determine path to the sample preference panes
-        NSString *pathToPanes = [[NSString stringWithFormat:@"%@/Contents/PlugIns/", [[NSBundle mainBundle] bundlePath]] stringByStandardizingPath];
-        
-		self.preferencesController = [ECPWController preferencesController];
-        self.preferencesController = prefs;
-		[prefs release];
-        
-        // Set which panes are included, and their order.
-		NSArray* panes = [self getPreferencePanes];
-		if (panes)
-		{
-			[prefs setPanesOrder: panes];
-		}
-    }
-	
-	return prefs;
-}
-
-// --------------------------------------------------------------------------
-//! Return a list of the preference panes to display.
-// --------------------------------------------------------------------------
-
-- (NSArray*) getPreferencePanes
-{       
-    NSDictionary* info = [[NSBundle mainBundle] infoDictionary];
-    NSArray* panes = [info objectForKey:@"ECPreferencePanes"];
-    
-    return panes;
-}
-
 
 #pragma mark -
 #pragma mark ECAboutBoxInfoProvider methods

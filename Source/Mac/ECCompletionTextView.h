@@ -18,7 +18,7 @@
     NSUInteger nextInsertionIndex;
 }
 
-@property (nonatomic, retain) NSCharacterSet* triggers;
-@property (nonatomic, retain) NSArray* potentialCompletions;
+@property (strong, nonatomic) NSCharacterSet* triggers;
+@property (strong, nonatomic) NSArray* potentialCompletions;
 
 @end
