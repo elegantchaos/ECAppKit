@@ -60,9 +60,6 @@ static NSString *const UserGuideType = @"pdf";
 {
 	self.fileManager = [NSFileManager defaultManager];
 	self.preferencesController = [ECPWController preferencesWindowController];
-
-    ECLogManager* lm = [ECLogManager sharedInstance];
-    [lm startup];
 }
 
 // --------------------------------------------------------------------------
