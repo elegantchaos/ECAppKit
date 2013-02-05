@@ -1,5 +1,4 @@
 // --------------------------------------------------------------------------
-//! @author Sam Deane
 //! @date 02/09/2010
 //
 //! @file Licensing support for ECAquaticPrime
