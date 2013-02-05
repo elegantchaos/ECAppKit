@@ -5,6 +5,7 @@
 // --------------------------------------------------------------------------
 
 #import <ECCore/ECCore.h>
+#import <ECPreferencesWindow/ECPreferencesWindow.h>
 
 #import "ECAboutBoxController.h"
 #import "ECAppDelegate.h"
@@ -17,7 +18,5 @@
 #import "ECMacStoreSaved.h"
 #import "ECMacStoreTest.h"
 #import "ECMacStoreDifferentVersion.h"
-#import "ECPreferencePanel.h"
-#import "ECPreferencesController.h"
 #import "ECRoundedView.h"
 #import "ECTextFieldCell.h"
