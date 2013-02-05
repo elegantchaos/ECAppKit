@@ -9,7 +9,7 @@
 
 #import "ECAboutBoxInfoProvider.h"
 
-@class ECPreferencesController;
+@class ECPWController;
 @class ECAboutBoxController;
 @class ECLicenseChecker;
 
@@ -24,14 +24,14 @@
 @property (nonatomic, assign) IBOutlet NSMenu* dockMenu;
 @property (nonatomic, assign) NSFileManager* fileManager;
 @property (nonatomic, retain) ECLicenseChecker* licenseChecker;
-@property (nonatomic, retain) ECPreferencesController* preferencesController;
+@property (nonatomic, retain) ECPWController* preferencesController;
 @property (nonatomic, assign) IBOutlet NSMenu* statusMenu;
 
 // --------------------------------------------------------------------------
 // Public Methods
 // --------------------------------------------------------------------------
 
-- (ECPreferencesController*)	getCachedPreferencesController;
+- (ECPWController*)				getCachedPreferencesController;
 - (NSArray*)					getPreferencePanes;
 - (BOOL)                        setupMacStore;
 - (void)                        stripElegantChaosStoreItemsFromMenu: (NSMenu*) menu;

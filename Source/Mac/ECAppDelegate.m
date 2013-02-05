@@ -8,7 +8,6 @@
 // --------------------------------------------------------------------------
 
 #import "ECAppDelegate.h"
-#import "ECPreferencesController.h"
 #import "ECAboutBoxController.h"
 #import "ECLicenseChecker.h"
 #import "ECMacStore.h"
@@ -171,7 +170,7 @@ static NSString *const UserGuideType = @"pdf";
 
 - (IBAction)showPreferences:(id)sender
 {
-    ECPreferencesController* prefs = [self getCachedPreferencesController];
+    ECPWController* prefs = [self getCachedPreferencesController];
 	[NSApp activateIgnoringOtherApps:YES];
     [prefs showPreferencesWindow];
 }
@@ -199,15 +198,14 @@ static NSString *const UserGuideType = @"pdf";
 //! Get the preferences controller - make it if necessary.
 // --------------------------------------------------------------------------
 
-- (ECPreferencesController*) getCachedPreferencesController
+- (ECPWController*)preferencesController
 {
-	ECPreferencesController* prefs = self.preferencesController;
-    if (!prefs) 
+    if (!_preferencesController)
 	{
         // Determine path to the sample preference panes
         NSString *pathToPanes = [[NSString stringWithFormat:@"%@/Contents/PlugIns/", [[NSBundle mainBundle] bundlePath]] stringByStandardizingPath];
         
-		prefs = [[ECPreferencesController alloc] initWithPanesSearchPath:pathToPanes];
+		self.preferencesController = [ECPWController preferencesController];
         self.preferencesController = prefs;
 		[prefs release];
         

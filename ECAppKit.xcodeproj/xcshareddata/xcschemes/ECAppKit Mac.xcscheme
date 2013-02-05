@@ -22,20 +22,6 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "22BEA1BE15DA55920036A04F"
-               BuildableName = "ECUnitTests.framework"
-               BlueprintName = "ECUnitTestsMac"
-               ReferencedContainer = "container:../ECUnitTests/ECUnitTests.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
@@ -59,7 +45,35 @@
                BlueprintIdentifier = "2260A2E815DFD7290057C9DA"
                BuildableName = "ECCore.framework"
                BlueprintName = "ECCoreMac"
-               ReferencedContainer = "container:ECCore.xcodeproj">
+               ReferencedContainer = "container:../ECCore/ECCore.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2260A2E815DFD7290057C9DA"
+               BuildableName = "ECPreferencesWindow.framework"
+               BlueprintName = "ECPreferencesWindowMac"
+               ReferencedContainer = "container:../ECPreferencesWindow/ECPreferencesWindow.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2260A2E815DFD7290057C9DA"
+               BuildableName = "ECAppKit.framework"
+               BlueprintName = "ECAppKitMac"
+               ReferencedContainer = "container:ECAppKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -75,9 +89,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2283A3F414F52EC0009142F7"
-               BuildableName = "ECCoreMacTests.octest"
-               BlueprintName = "ECCoreMacTests"
-               ReferencedContainer = "container:ECCore.xcodeproj">
+               BuildableName = "ECAppKitMacTests.octest"
+               BlueprintName = "ECAppKitMacTests"
+               ReferencedContainer = "container:ECAppKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
