@@ -59,7 +59,6 @@
 		224E132D16C15051003DCB9D /* ECPreferencesWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224E132C16C15051003DCB9D /* ECPreferencesWindow.framework */; };
 		224E133216C15231003DCB9D /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8415E42E7C00E67F50 /* libcrypto.dylib */; };
 		2260A2EA15DFD7290057C9DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2283A3BB14F52E93009142F7 /* Cocoa.framework */; };
-		2260A39A15DFE2DD0057C9DA /* ECConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39715DFE2DC0057C9DA /* ECConfig.framework */; };
 		2260A39B15DFE2DD0057C9DA /* ECLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39815DFE2DD0057C9DA /* ECLogging.framework */; };
 		2260A3A015DFE6860057C9DA /* ECAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A2E915DFD7290057C9DA /* ECAppKit.framework */; };
 		2260A3A115DFE6860057C9DA /* ECConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39715DFE2DC0057C9DA /* ECConfig.framework */; };
@@ -171,7 +170,6 @@
 			files = (
 				224E132D16C15051003DCB9D /* ECPreferencesWindow.framework in Frameworks */,
 				22E85D8715E42E8900E67F50 /* ECCore.framework in Frameworks */,
-				2260A39A15DFE2DD0057C9DA /* ECConfig.framework in Frameworks */,
 				2260A39B15DFE2DD0057C9DA /* ECLogging.framework in Frameworks */,
 				2260A2EA15DFD7290057C9DA /* Cocoa.framework in Frameworks */,
 				224E133216C15231003DCB9D /* libcrypto.dylib in Frameworks */,
