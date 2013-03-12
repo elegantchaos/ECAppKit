@@ -59,7 +59,7 @@
         }
         
         [pasteboard setPropertyList:types forType:NSFilesPromisePboardType];
-        NSLog(@"written types %@", types);
+        ECDebug(ECDraggableArrayControllerChannel, @"written types %@", types);
     }
     else
     {
