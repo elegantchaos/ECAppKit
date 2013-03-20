@@ -12,14 +12,11 @@
 // --------------------------------------------------------------------------
 
 @interface ECFilledView : NSView
-{
-	float mTransparency;
-}
 
 // --------------------------------------------------------------------------
 // Properties
 // --------------------------------------------------------------------------
 
-@property (assign) float transparency;
+@property (assign, nonatomic) float transparency;
 
 @end

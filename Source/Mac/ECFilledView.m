@@ -9,8 +9,6 @@
 
 @implementation ECFilledView
 
-@synthesize transparency = mTransparency;
-
 
 - (void) setupDefaults
 {

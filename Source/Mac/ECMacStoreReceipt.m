@@ -164,8 +164,8 @@ NSString *const kReceiptHash = @"Hash";
 	BIO *payload = BIO_new(BIO_s_mem());
 	X509_STORE *store = X509_STORE_new();
 	
-	unsigned char const *data = (unsigned char const *)(rootCertData.bytes);
-	X509 *appleCA = d2i_X509(NULL, &data, rootCertData.length);
+	unsigned char const *certDataPtr = (unsigned char const *)(rootCertData.bytes);
+	X509 *appleCA = d2i_X509(NULL, &certDataPtr, rootCertData.length);
 	
 	X509_STORE_add_cert(store, appleCA);
 	

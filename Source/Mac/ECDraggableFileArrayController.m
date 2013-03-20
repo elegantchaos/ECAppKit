@@ -54,8 +54,8 @@
         NSArray* items = [[self arrangedObjects] objectsAtIndexes:rowIndexes];
         for (id item in items)
         {
-			NSString* type = [self typeOfItem:item];
-            [types addObject:type];
+			NSString* itemType = [self typeOfItem:item];
+            [types addObject:itemType];
         }
         
         [pasteboard setPropertyList:types forType:NSFilesPromisePboardType];
