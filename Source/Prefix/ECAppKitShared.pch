@@ -9,6 +9,7 @@
 #ifdef __OBJC__
 
 #import <ECCore/ECCore.h>
+#import <ECSecurity/ECSecurity.h>
 #import <ECPreferencesWindow/ECPreferencesWindow.h>
 
 #endif

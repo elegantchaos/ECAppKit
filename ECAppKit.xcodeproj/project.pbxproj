@@ -61,11 +61,11 @@
 		2260A2EA15DFD7290057C9DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2283A3BB14F52E93009142F7 /* Cocoa.framework */; };
 		2260A39B15DFE2DD0057C9DA /* ECLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39815DFE2DD0057C9DA /* ECLogging.framework */; };
 		2260A3A015DFE6860057C9DA /* ECAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A2E915DFD7290057C9DA /* ECAppKit.framework */; };
-		2260A3A115DFE6860057C9DA /* ECConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39715DFE2DC0057C9DA /* ECConfig.framework */; };
 		2260A3A215DFE6860057C9DA /* ECLogging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A39815DFE2DD0057C9DA /* ECLogging.framework */; };
 		2260A3A415DFE6870057C9DA /* ECUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260A3A315DFE6860057C9DA /* ECUnitTests.framework */; };
 		2283A3F614F52EC0009142F7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2283A3CD14F52E93009142F7 /* SenTestingKit.framework */; };
 		2283A3F714F52EC0009142F7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2283A3BB14F52E93009142F7 /* Cocoa.framework */; };
+		229628D5176254E2008D887F /* ECSecurity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229628D4176254E2008D887F /* ECSecurity.framework */; };
 		22C2DB5E14FB9ADC005D2E89 /* Test.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22C2DB5D14FB9ADC005D2E89 /* Test.bundle */; };
 		22E85D8715E42E8900E67F50 /* ECCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8615E42E8900E67F50 /* ECCore.framework */; };
 		22E85D8915E42F6D00E67F50 /* ECAppKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 22E85D8815E42F6C00E67F50 /* ECAppKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -145,7 +145,6 @@
 		2260A31215DFD96D0057C9DA /* MacUnitTestDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MacUnitTestDebug.xcconfig; sourceTree = "<group>"; };
 		2260A31315DFD96D0057C9DA /* MacUnitTestRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MacUnitTestRelease.xcconfig; sourceTree = "<group>"; };
 		2260A39615DFDC600057C9DA /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
-		2260A39715DFE2DC0057C9DA /* ECConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECConfig.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2260A39815DFE2DD0057C9DA /* ECLogging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECLogging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2260A3A315DFE6860057C9DA /* ECUnitTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2260A3AC15DFEF4F0057C9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
@@ -155,6 +154,7 @@
 		2283A3BB14F52E93009142F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2283A3CD14F52E93009142F7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		2283A3F514F52EC0009142F7 /* ECAppKitMacTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ECAppKitMacTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		229628D4176254E2008D887F /* ECSecurity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C2DB5D14FB9ADC005D2E89 /* Test.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Test.bundle; path = ../ECUnitTests/Resources/Test.bundle; sourceTree = SOURCE_ROOT; };
 		22E85D8415E42E7C00E67F50 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libcrypto.dylib; sourceTree = DEVELOPER_DIR; };
 		22E85D8615E42E8900E67F50 /* ECCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229628D5176254E2008D887F /* ECSecurity.framework in Frameworks */,
 				224E132D16C15051003DCB9D /* ECPreferencesWindow.framework in Frameworks */,
 				22E85D8715E42E8900E67F50 /* ECCore.framework in Frameworks */,
 				2260A39B15DFE2DD0057C9DA /* ECLogging.framework in Frameworks */,
@@ -182,7 +183,6 @@
 			files = (
 				2260A3A415DFE6870057C9DA /* ECUnitTests.framework in Frameworks */,
 				2260A3A015DFE6860057C9DA /* ECAppKit.framework in Frameworks */,
-				2260A3A115DFE6860057C9DA /* ECConfig.framework in Frameworks */,
 				2260A3A215DFE6860057C9DA /* ECLogging.framework in Frameworks */,
 				2283A3F614F52EC0009142F7 /* SenTestingKit.framework in Frameworks */,
 				2283A3F714F52EC0009142F7 /* Cocoa.framework in Frameworks */,
@@ -276,10 +276,10 @@
 		224E132E16C1510C003DCB9D /* Elegant Chaos */ = {
 			isa = PBXGroup;
 			children = (
+				229628D4176254E2008D887F /* ECSecurity.framework */,
 				224E132C16C15051003DCB9D /* ECPreferencesWindow.framework */,
 				22E85D8615E42E8900E67F50 /* ECCore.framework */,
 				2260A3A315DFE6860057C9DA /* ECUnitTests.framework */,
-				2260A39715DFE2DC0057C9DA /* ECConfig.framework */,
 				2260A39815DFE2DD0057C9DA /* ECLogging.framework */,
 			);
 			name = "Elegant Chaos";
@@ -588,6 +588,10 @@
 			baseConfigurationReference = 2260A31015DFD96D0057C9DA /* MacDebug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Caches/DerivedData/ECIntegration-fbajcwyruhnhxzgnphlhxaexutkp/Build/Products/Debug\"",
+				);
 				GCC_PREFIX_HEADER = "Source/Prefix/$(PRODUCT_NAME)$(CONFIGURATION).pch";
 			};
 			name = Debug;
@@ -597,6 +601,10 @@
 			baseConfigurationReference = 2260A31115DFD96D0057C9DA /* MacRelease.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/Caches/DerivedData/ECIntegration-fbajcwyruhnhxzgnphlhxaexutkp/Build/Products/Debug\"",
+				);
 				GCC_PREFIX_HEADER = "Source/Prefix/$(PRODUCT_NAME)$(CONFIGURATION).pch";
 			};
 			name = Release;
