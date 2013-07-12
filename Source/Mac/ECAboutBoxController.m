@@ -28,16 +28,6 @@ static NSString *const kDefaultStatus = @"test status";
 @implementation ECAboutBoxController
 
 // --------------------------------------------------------------------------
-// Properties
-// --------------------------------------------------------------------------
-
-@synthesize applicationName = mApplicationName;
-@synthesize applicationVersion = mApplicationVersion;
-@synthesize applicationCopyright = mApplicationCopyright;
-@synthesize applicationCreditsFile = mApplicationCreditsFile;
-@synthesize applicationStatus = mApplicationStatus;
-
-// --------------------------------------------------------------------------
 //! Clean up
 // --------------------------------------------------------------------------
 
