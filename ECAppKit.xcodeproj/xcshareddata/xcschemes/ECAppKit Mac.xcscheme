@@ -45,7 +45,7 @@
                BlueprintIdentifier = "2260A2E815DFD7290057C9DA"
                BuildableName = "ECPreferencesWindow.framework"
                BlueprintName = "ECPreferencesWindowMac"
-               ReferencedContainer = "container:../ECPreferencesWindow/ECPreferencesWindow.xcodeproj">
+               ReferencedContainer = "container:../../frameworks/ECPreferencesWindow/ECPreferencesWindow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
