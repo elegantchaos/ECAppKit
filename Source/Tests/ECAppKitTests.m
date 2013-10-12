@@ -1,15 +1,20 @@
 // --------------------------------------------------------------------------
 //  Copyright 2013 Sam Deane, Elegant Chaos. All rights reserved.
-//  This source code is distributed under the terms of Elegant Chaos's
+//  This source code is distributed under the terms of Elegant Chaos's 
 //  liberal license: http://www.elegantchaos.com/license/liberal
 // --------------------------------------------------------------------------
 
-#define EC_APPKIT 1
+#import <ECUnitTests/ECUnitTests.h>
 
-#ifdef __OBJC__
+@interface ECAppKitTests : ECTestCase
 
-#import <ECCore/ECCore.h>
-#import <ECSecurity/ECSecurity.h>
-#import <ECPreferencesWindow/ECPreferencesWindow.h>
+@end
 
-#endif
+@implementation ECAppKitTests
+
+- (void)testExample
+{
+	NSLog(@"blah");
+}
+
+@end

@@ -8,15 +8,6 @@
 
 @interface ECCompletionTextView : NSTextView
 
-{
-@private
-    NSCharacterSet* triggers;
-    NSArray* potentialCompletions;
-    NSTimer* completionTimer;
-    NSCharacterSet* whitespace;
-    NSUInteger nextInsertionIndex;
-}
-
 @property (strong, nonatomic) NSCharacterSet* triggers;
 @property (strong, nonatomic) NSArray* potentialCompletions;
 

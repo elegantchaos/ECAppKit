@@ -27,15 +27,6 @@
 
 static NSTimeInterval kCompletionDelay = 0.5;
 
-#pragma mark - Properties
-
-@synthesize completing = _completing;
-@synthesize completionTimer;
-@synthesize nextInsertionIndex;
-@synthesize potentialCompletions;
-@synthesize triggers;
-@synthesize whitespace;
-
 #pragma mark - Channels
 
 ECDefineDebugChannel(CompletionTextViewChannel);
@@ -54,6 +45,15 @@ ECDefineDebugChannel(CompletionTextViewChannel);
     }
     
     return self;
+}
+
+- (void)dealloc 
+{
+    [_potentialCompletions release];
+    [_triggers release];
+    [_whitespace release];
+    
+    [super dealloc];
 }
 
 - (void)setupWhitespace
