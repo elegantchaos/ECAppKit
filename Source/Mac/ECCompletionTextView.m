@@ -47,15 +47,6 @@ ECDefineDebugChannel(CompletionTextViewChannel);
     return self;
 }
 
-- (void)dealloc 
-{
-    [_potentialCompletions release];
-    [_triggers release];
-    [_whitespace release];
-    
-    [super dealloc];
-}
-
 - (void)setupWhitespace
 {
     self.whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];

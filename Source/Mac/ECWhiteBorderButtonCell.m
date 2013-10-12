@@ -68,7 +68,6 @@
 	NSColor* color = [self isHighlighted] ? [NSColor blackColor] : [NSColor whiteColor];
 	[mutable addAttribute: NSForegroundColorAttributeName value: color range: range];
 	[mutable drawInRect: frame];
-	[mutable release];
 	
 	return frame;
 }
