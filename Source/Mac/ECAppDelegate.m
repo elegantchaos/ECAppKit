@@ -35,15 +35,6 @@ static NSString *const UserGuideType = @"pdf";
 
 #pragma mark - Lifecycle
 
-- (void) dealloc
-{
-    [_aboutController release];
-    [_preferencesController release];
-    [_licenseChecker release];
-
-    [super dealloc];
-}
-
 // ==============================================
 // Application Lifecycle
 // ==============================================
@@ -173,7 +164,6 @@ static NSString *const UserGuideType = @"pdf";
 	{
 		about = [[ECAboutBoxController alloc] initWithWindowNibName: @"ECAboutBox"];
 		self.aboutController = about;
-		[about release];
 	}
 	
 	[NSApp activateIgnoringOtherApps:YES];
@@ -265,22 +255,18 @@ static NSString *const UserGuideType = @"pdf";
     
     ECMacStoreExact* exactChecker = [[ECMacStoreExact alloc] init];
     [compoundChecker addChecker: exactChecker];
-    [exactChecker release];
-    
+
 #if EC_DEBUG
     // look for saved MAS receipt with different version
     ECMacStoreDifferentVersion* differentVersionChecker = [[ECMacStoreDifferentVersion alloc] init];
     [compoundChecker addChecker: differentVersionChecker];
-    [differentVersionChecker release];
 
     ECMacStoreTest* testChecker = [[ECMacStoreTest alloc] init];
     [compoundChecker addChecker: testChecker];
-    [testChecker release];
 #endif
     
 	self.licenseChecker = compoundChecker;
-	[compoundChecker release];
-	
+
 	return [compoundChecker isValid];
 }
 

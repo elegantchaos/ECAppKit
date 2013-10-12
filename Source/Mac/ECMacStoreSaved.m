@@ -28,7 +28,6 @@
                 self.status = @"Found MAS Receipt";
                 self.receipt = receipt;
             }
-            [receipt release];
         }
     }
     

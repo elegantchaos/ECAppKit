@@ -23,13 +23,6 @@
     return self;
 }
 
-- (void) dealloc
-{
-	[checkers release];
-    
-    [super dealloc];
-}
-
 - (BOOL) isValid
 {
     for (ECLicenseChecker* checker in self.checkers)

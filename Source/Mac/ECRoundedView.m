@@ -30,7 +30,7 @@ static const CGFloat kDefaultRadius = 25.0;
 	self.radius = kDefaultRadius;
 	NSColor* start = [NSColor colorWithCalibratedWhite:0.0f alpha:kStartAlpha];
 	NSColor* end = [start colorWithAlphaComponent:kEndAlpha];
-	self.gradient = [[[NSGradient alloc] initWithStartingColor:start endingColor:end] autorelease];
+	self.gradient = [[NSGradient alloc] initWithStartingColor:start endingColor:end];
 }
 
 // --------------------------------------------------------------------------
@@ -46,14 +46,6 @@ static const CGFloat kDefaultRadius = 25.0;
 	}
 	
 	return self;
-}
-
-- (void)dealloc
-{
-	[gradient release];
-	[path release];
-	
-	[super dealloc];
 }
 
 // --------------------------------------------------------------------------

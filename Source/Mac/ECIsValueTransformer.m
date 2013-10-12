@@ -45,7 +45,7 @@
 
 + (void)initialize 
 {
-    ECIsValueTransformer *nameTransformer = [[[ECIsValueTransformer alloc] init] autorelease];
+    ECIsValueTransformer *nameTransformer = [[ECIsValueTransformer alloc] init];
     [NSValueTransformer setValueTransformer:nameTransformer forName:@"ECIsValueTransformer"];
 }
 
@@ -61,15 +61,6 @@
 	}
 	
 	return self;
-}
-
-// --------------------------------------------------------------------------
-//! Clean up and release retained objects.
-// --------------------------------------------------------------------------
-
-- (void) dealloc
-{
-	[super dealloc];
 }
 
 + (Class)transformedValueClass { return [NSString class]; }

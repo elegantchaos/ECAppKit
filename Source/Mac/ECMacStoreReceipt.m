@@ -54,16 +54,6 @@ NSString *const kReceiptHash = @"Hash";
     return self;
 }
 
-// --------------------------------------------------------------------------
-//! Clean up.
-// --------------------------------------------------------------------------
-
-- (void) dealloc
-{
-    [info release];
-    
-    [super dealloc];
-}
 
 // --------------------------------------------------------------------------
 //! Check the receipt matches a given guid, identifier and version
@@ -269,9 +259,9 @@ NSString *const kReceiptHash = @"Hash";
                     const unsigned char *str_p = p;
                     ASN1_get_object(&str_p, &str_length, &str_type, &xclass, seq_end - str_p);
                     if (str_type == V_ASN1_UTF8STRING) {
-                        NSString *string = [[[NSString alloc] initWithBytes:str_p
+                        NSString *string = [[NSString alloc] initWithBytes:str_p
                                                                      length:str_length
-                                                                   encoding:NSUTF8StringEncoding] autorelease];
+                                                                   encoding:NSUTF8StringEncoding];
 						
                         switch (attr_type) {
                             case BUNDLE_ID:

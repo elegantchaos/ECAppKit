@@ -15,7 +15,7 @@
 
 + (void)initialize 
 {
-    ECIsNotEmptyTransformer* transformer = [[[ECIsNotEmptyTransformer alloc] init] autorelease];
+    ECIsNotEmptyTransformer* transformer = [[ECIsNotEmptyTransformer alloc] init];
     [NSValueTransformer setValueTransformer:transformer forName:@"ECIsNotEmptyTransformer"];
 }
 

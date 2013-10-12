@@ -38,20 +38,6 @@ static NSString *const kDefaultStatus = @"test status";
 @synthesize applicationStatus = mApplicationStatus;
 
 // --------------------------------------------------------------------------
-//! Clean up
-// --------------------------------------------------------------------------
-
-- (void) dealloc
-{
-	[mApplicationName release];
-	[mApplicationVersion release];
-	[mApplicationCopyright release];
-	[mApplicationCreditsFile release];
-	
-	[super dealloc];
-}
-
-// --------------------------------------------------------------------------
 //! Set things up after the nib has loaded.
 // --------------------------------------------------------------------------
 

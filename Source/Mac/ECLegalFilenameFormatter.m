@@ -7,6 +7,9 @@
 
 #import "ECLegalFilenameFormatter.h"
 
+@interface ECLegalFilenameFormatter()
+@property (strong, nonatomic) NSCharacterSet* illegalCharacters;
+@end
 
 @implementation ECLegalFilenameFormatter
 
@@ -14,25 +17,14 @@
 //! Initialise
 // --------------------------------------------------------------------------
 
-- (id) init
+- (id)init
 {
 	if ((self = [super init]) != nil)
 	{
-		mIllegalCharacters = [NSCharacterSet characterSetWithCharactersInString: @":"];
-		[mIllegalCharacters retain];
+		self.illegalCharacters = [NSCharacterSet characterSetWithCharactersInString: @":"];
 	}
 	
 	return self;
-}
-
-// --------------------------------------------------------------------------
-//! Cleanup.
-// --------------------------------------------------------------------------
-
-- (void) dealloc
-{
-	[mIllegalCharacters release];
-	[super dealloc];
 }
 
 // --------------------------------------------------------------------------
@@ -69,7 +61,7 @@
 {
 	NSAttributedString* result = [[NSAttributedString alloc] initWithString: [self stringForObjectValue: anObject]];
 	
-	return [result autorelease];
+	return result;
 }
 
 // --------------------------------------------------------------------------
@@ -78,7 +70,7 @@
 
 - (BOOL) illegalCharactersInString: (NSString*) string
 {
-	return ([string rangeOfCharacterFromSet: mIllegalCharacters].length != 0);
+	return ([string rangeOfCharacterFromSet: self.illegalCharacters].length != 0);
 }
 
 // --------------------------------------------------------------------------
