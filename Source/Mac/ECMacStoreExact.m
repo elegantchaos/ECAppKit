@@ -29,7 +29,6 @@
                 self.status = @"Mac Store Edition";
                 self.receipt = receipt;
             }
-            [receipt release];
             
             // save a copy of the receipt into the application data folder
             NSURL* copyURL = [ECMacStore savedReceiptURLForGuid:guid];

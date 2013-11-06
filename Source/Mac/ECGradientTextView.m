@@ -43,20 +43,12 @@ static const CGFloat kDefaultRadius = 25.0;
     [self setupDefaults];
 }
 
-- (void)dealloc
-{
-    [_gradient release];
-    [_path release];
-    
-    [super dealloc];
-}
-
 - (void) setupDefaults
 {
 	self.radius = kDefaultRadius;
 	NSColor* start = [NSColor colorWithCalibratedWhite:0.0f alpha:kStartAlpha];
 	NSColor* end = [start colorWithAlphaComponent:kEndAlpha];
-	self.gradient = [[[NSGradient alloc] initWithStartingColor:start endingColor:end] autorelease];
+	self.gradient = [[NSGradient alloc] initWithStartingColor:start endingColor:end];
 }
 
 - (void)drawViewBackgroundInRect:(NSRect)rect

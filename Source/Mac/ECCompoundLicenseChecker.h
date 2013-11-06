@@ -9,9 +9,6 @@
 #import "ECLicenseChecker.h"
 
 @interface ECCompoundLicenseChecker : ECLicenseChecker 
-{
-	NSMutableArray* checkers;
-}
 
 @property (strong, nonatomic) NSMutableArray* checkers;
 
