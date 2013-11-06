@@ -72,19 +72,6 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 }
 
 // --------------------------------------------------------------------------
-//! Clean up.
-// --------------------------------------------------------------------------
-
-- (void)dealloc
-{
-	[collection release];
-	[supportedTypes release];
-	[table release];
-    
-    [super dealloc];
-}
-
-// --------------------------------------------------------------------------
 //! Return mask to use for local drags.
 // --------------------------------------------------------------------------
 

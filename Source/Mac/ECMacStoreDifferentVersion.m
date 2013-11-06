@@ -27,7 +27,6 @@
                 self.status = @"Indy Edition (Older MAS Found)";
                 self.receipt = receipt;
             }
-            [receipt release];
         }
     }
     

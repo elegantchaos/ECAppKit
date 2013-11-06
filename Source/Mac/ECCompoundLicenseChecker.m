@@ -11,8 +11,6 @@
 
 @implementation ECCompoundLicenseChecker
 
-@synthesize checkers;
-
 - (id) init 
 {
     if ((self = [super init]) != nil) 
@@ -21,13 +19,6 @@
     }
     
     return self;
-}
-
-- (void) dealloc
-{
-	[checkers release];
-    
-    [super dealloc];
 }
 
 - (BOOL) isValid
