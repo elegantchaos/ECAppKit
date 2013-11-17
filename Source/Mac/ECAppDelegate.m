@@ -30,11 +30,6 @@ ECDefineLogChannel(ECAppDelegateChannel);
 
 static NSString *const UserGuideType = @"pdf";
 
-#pragma mark - Properties
-
-
-#pragma mark - Lifecycle
-
 // ==============================================
 // Application Lifecycle
 // ==============================================

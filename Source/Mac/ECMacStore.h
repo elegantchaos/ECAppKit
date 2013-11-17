@@ -7,16 +7,6 @@
 @class ECMacStoreReceipt;
 
 @interface ECMacStore : ECLicenseChecker
-{
-@private
-    
-    // --------------------------------------------------------------------------
-    // Member Variables
-    // --------------------------------------------------------------------------
-
-    ECMacStoreReceipt* receipt;
-    NSString* status;
-}
 
 // --------------------------------------------------------------------------
 // Public Properties

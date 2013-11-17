@@ -103,7 +103,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2283A3F414F52EC0009142F7"
-               BuildableName = "ECAppKitMacTests.octest"
+               BuildableName = "ECAppKitMacTests.xctest"
                BlueprintName = "ECAppKitMacTests"
                ReferencedContainer = "container:ECAppKit.xcodeproj">
             </BuildableReference>

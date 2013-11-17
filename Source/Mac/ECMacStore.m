@@ -15,10 +15,6 @@
 
 @implementation ECMacStore
 
-@synthesize receipt;
-@synthesize status;
-
-
 // --------------------------------------------------------------------------
 //! Is our license (receipt) file valid?
 // --------------------------------------------------------------------------

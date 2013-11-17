@@ -11,6 +11,12 @@
 @property (strong, nonatomic) NSCharacterSet* illegalCharacters;
 @end
 
+@interface ECLegalFilenameFormatter()
+
+@property (strong, nonatomic) NSCharacterSet* illegalCharacters;
+
+@end
+
 @implementation ECLegalFilenameFormatter
 
 // --------------------------------------------------------------------------

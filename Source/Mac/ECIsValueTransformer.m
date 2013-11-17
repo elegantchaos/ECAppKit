@@ -63,6 +63,10 @@
 	return self;
 }
 
+// --------------------------------------------------------------------------
+//! Clean up and release retained objects.
+// --------------------------------------------------------------------------
+
 + (Class)transformedValueClass { return [NSString class]; }
 + (BOOL)allowsReverseTransformation { return NO; }
 

@@ -11,8 +11,6 @@
 
 @implementation ECCompoundLicenseChecker
 
-@synthesize checkers;
-
 - (id) init 
 {
     if ((self = [super init]) != nil) 

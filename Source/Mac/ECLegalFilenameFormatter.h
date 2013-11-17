@@ -10,10 +10,6 @@
 
 @interface ECLegalFilenameFormatter : NSFormatter 
 
-// --------------------------------------------------------------------------
-// Public Methods
-// --------------------------------------------------------------------------
-
 - (BOOL) illegalCharactersInString: (NSString*) string;
 
 @end
