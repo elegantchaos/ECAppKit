@@ -153,7 +153,7 @@
 		22728A68124A240500A9881F /* ECAppKitShared.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECAppKitShared.pch; sourceTree = "<group>"; };
 		2283A3BB14F52E93009142F7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2283A3CD14F52E93009142F7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		2283A3F514F52EC0009142F7 /* ECAppKitMacTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ECAppKitMacTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2283A3F514F52EC0009142F7 /* ECAppKitMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ECAppKitMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628D4176254E2008D887F /* ECSecurity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECSecurity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		229628EC17628029008D887F /* ECAppKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECAppKitTests.m; sourceTree = "<group>"; };
 		22E85D8415E42E7C00E67F50 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libcrypto.dylib; sourceTree = DEVELOPER_DIR; };
@@ -195,7 +195,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2283A3F514F52EC0009142F7 /* ECAppKitMacTests.octest */,
+				2283A3F514F52EC0009142F7 /* ECAppKitMacTests.xctest */,
 				2260A2E915DFD7290057C9DA /* ECAppKit.framework */,
 			);
 			name = Products;
@@ -449,7 +449,7 @@
 			);
 			name = ECAppKitMacTests;
 			productName = libECCoreMacTests;
-			productReference = 2283A3F514F52EC0009142F7 /* ECAppKitMacTests.octest */;
+			productReference = 2283A3F514F52EC0009142F7 /* ECAppKitMacTests.xctest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
