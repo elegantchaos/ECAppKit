@@ -20,3 +20,4 @@
 #import "ECMacStoreDifferentVersion.h"
 #import "ECRoundedView.h"
 #import "ECTextFieldCell.h"
+#import "ECPlaceholderView.h"

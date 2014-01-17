@@ -56,6 +56,8 @@
 		2204C83215E282BB00F71E15 /* ECTransparentWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F615E282BB00F71E15 /* ECTransparentWindow.m */; };
 		2204C83315E282BB00F71E15 /* ECWhiteBorderButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7F715E282BB00F71E15 /* ECWhiteBorderButtonCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C83415E282BB00F71E15 /* ECWhiteBorderButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */; };
+		222D9D4F18896E8F005B9E40 /* ECPlaceholderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		222D9D5018896E8F005B9E40 /* ECPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */; };
 		224E132D16C15051003DCB9D /* ECPreferencesWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224E132C16C15051003DCB9D /* ECPreferencesWindow.framework */; };
 		224E133216C15231003DCB9D /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8415E42E7C00E67F50 /* libcrypto.dylib */; };
 		2260A2EA15DFD7290057C9DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2283A3BB14F52E93009142F7 /* Cocoa.framework */; };
@@ -138,6 +140,8 @@
 		2204C7F715E282BB00F71E15 /* ECWhiteBorderButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECWhiteBorderButtonCell.h; sourceTree = "<group>"; };
 		2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECWhiteBorderButtonCell.m; sourceTree = "<group>"; };
 		221662E914FB9315009B975D /* ECAppKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ECAppKitTests.plist; path = Resources/ECAppKitTests.plist; sourceTree = SOURCE_ROOT; };
+		222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPlaceholderView.h; sourceTree = "<group>"; };
+		222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPlaceholderView.m; sourceTree = "<group>"; };
 		224E132C16C15051003DCB9D /* ECPreferencesWindow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECPreferencesWindow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2260A2E915DFD7290057C9DA /* ECAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ECAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2260A31015DFD96D0057C9DA /* MacDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MacDebug.xcconfig; sourceTree = "<group>"; };
@@ -371,6 +375,8 @@
 				2204C7F515E282BB00F71E15 /* ECTransparentWindow.h */,
 				2204C7F615E282BB00F71E15 /* ECTransparentWindow.m */,
 				2204C7F715E282BB00F71E15 /* ECWhiteBorderButtonCell.h */,
+				222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */,
+				222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */,
 				2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */,
 			);
 			path = Mac;
@@ -390,6 +396,7 @@
 				2204C80215E282BB00F71E15 /* ECCompoundLicenseChecker.h in Headers */,
 				2204C80615E282BB00F71E15 /* ECDraggableArrayController.h in Headers */,
 				2204C80815E282BB00F71E15 /* ECDraggableFileArrayController.h in Headers */,
+				222D9D4F18896E8F005B9E40 /* ECPlaceholderView.h in Headers */,
 				2204C80A15E282BB00F71E15 /* ECFilledView.h in Headers */,
 				2204C80C15E282BB00F71E15 /* ECGradientTextView.h in Headers */,
 				2204C80E15E282BB00F71E15 /* ECIsEmptyTransformer.h in Headers */,
@@ -526,6 +533,7 @@
 			files = (
 				2204C7FD15E282BB00F71E15 /* ECAppDelegate.m in Sources */,
 				2204C80115E282BB00F71E15 /* ECCompletionTextView.m in Sources */,
+				222D9D5018896E8F005B9E40 /* ECPlaceholderView.m in Sources */,
 				2204C80315E282BB00F71E15 /* ECCompoundLicenseChecker.m in Sources */,
 				2204C80715E282BB00F71E15 /* ECDraggableArrayController.m in Sources */,
 				2204C80915E282BB00F71E15 /* ECDraggableFileArrayController.m in Sources */,
