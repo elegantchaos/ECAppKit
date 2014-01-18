@@ -48,6 +48,9 @@ ECDefineDebugChannel(PlaceholderViewChannel);
         }
     }
     
+    if ([self.replacementController respondsToSelector:@selector(view:willReplacePlaceholder:)])
+        [self.replacementController view:replacementView willReplacePlaceholder:self];
+    
     replacementView.translatesAutoresizingMaskIntoConstraints = NO;
     replacementView.identifier = self.identifier;
     [superview replaceSubview:self with:replacementView];
@@ -65,6 +68,9 @@ ECDefineDebugChannel(PlaceholderViewChannel);
         [superview addConstraint:newConstraint];
     }
     ECDebug(PlaceholderViewChannel, @"Replaced placholder with actual view controlled by %@", self.replacementController);
+    
+    if ([self.replacementController respondsToSelector:@selector(view:didReplacePlaceholder:)])
+        [self.replacementController view:replacementView didReplacePlaceholder:self];
 }
 
 @end

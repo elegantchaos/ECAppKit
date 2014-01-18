@@ -366,6 +366,8 @@
 				2204C7E515E282BB00F71E15 /* ECMacStoreSaved.m */,
 				2204C7E615E282BB00F71E15 /* ECMacStoreTest.h */,
 				2204C7E715E282BB00F71E15 /* ECMacStoreTest.m */,
+				222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */,
+				222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */,
 				2204C7ED15E282BB00F71E15 /* ECRoundedImageCell.h */,
 				2204C7EE15E282BB00F71E15 /* ECRoundedImageCell.m */,
 				2204C7EF15E282BB00F71E15 /* ECRoundedView.h */,
@@ -375,8 +377,6 @@
 				2204C7F515E282BB00F71E15 /* ECTransparentWindow.h */,
 				2204C7F615E282BB00F71E15 /* ECTransparentWindow.m */,
 				2204C7F715E282BB00F71E15 /* ECWhiteBorderButtonCell.h */,
-				222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */,
-				222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */,
 				2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */,
 			);
 			path = Mac;

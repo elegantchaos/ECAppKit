@@ -8,8 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol ECPalceholderViewController<NSObject>
+@optional
+- (void)view:(NSView*)view willReplacePlaceholder:(NSView*)placeholder;
+- (void)view:(NSView*)view didReplacePlaceholder:(NSView*)placeholder;
+@end
+
 @interface ECPlaceholderView : NSView
 
-@property (strong, nonatomic) IBOutlet NSViewController* replacementController;
+@property (strong, nonatomic) IBOutlet NSViewController<ECPalceholderViewController>* replacementController;
 
 @end
