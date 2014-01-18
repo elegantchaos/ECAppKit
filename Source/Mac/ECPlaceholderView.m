@@ -21,7 +21,8 @@ ECDefineDebugChannel(PlaceholderViewChannel);
 
 - (void)awakeFromNib
 {
-    [self performSelector:@selector(replacePlaceholder) withObject:nil afterDelay:0.0];
+    [self replacePlaceholder];
+//    [self performSelector:@selector(replacePlaceholder) withObject:nil afterDelay:0.0];
 }
 
 - (void)replacePlaceholder
@@ -35,16 +36,20 @@ ECDefineDebugChannel(PlaceholderViewChannel);
         {
             id firstItem = (constraint.firstItem == self) ? replacementView : constraint.firstItem;
             id secondItem = (constraint.secondItem == self) ? replacementView : constraint.secondItem;
-            [constraintsToTransfer addObject:@{
+            NSMutableDictionary* info = [NSMutableDictionary dictionaryWithDictionary:@{
                                                @"firstItem": firstItem,
                                                @"firstAttribute" : @(constraint.firstAttribute),
                                                @"relation" : @(constraint.relation),
-                                               @"secondItem" : secondItem,
                                                @"secondAttribute" : @(constraint.secondAttribute),
                                                @"multiplier" : @(constraint.multiplier),
                                                @"constant" : @(constraint.constant),
                                                @"priority" : @(constraint.priority)
                                                }];
+            
+            if (secondItem)
+                info[@"secondItem"] = secondItem;
+            
+            [constraintsToTransfer addObject:info];
         }
     }
     
