@@ -21,6 +21,11 @@ ECDefineDebugChannel(PlaceholderViewChannel);
 
 - (void)awakeFromNib
 {
+    [self performSelector:@selector(replacePlaceholder) withObject:nil afterDelay:0.0];
+}
+
+- (void)replacePlaceholder
+{
     NSView* superview = self.superview;
     NSView* replacementView = self.replacementController.view;
     NSMutableArray* constraintsToTransfer = [NSMutableArray new];
