@@ -16,10 +16,6 @@
 		2204C80115E282BB00F71E15 /* ECCompletionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7C515E282BB00F71E15 /* ECCompletionTextView.m */; };
 		2204C80215E282BB00F71E15 /* ECCompoundLicenseChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7C615E282BB00F71E15 /* ECCompoundLicenseChecker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C80315E282BB00F71E15 /* ECCompoundLicenseChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7C715E282BB00F71E15 /* ECCompoundLicenseChecker.m */; };
-		2204C80615E282BB00F71E15 /* ECDraggableArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7CA15E282BB00F71E15 /* ECDraggableArrayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2204C80715E282BB00F71E15 /* ECDraggableArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7CB15E282BB00F71E15 /* ECDraggableArrayController.m */; };
-		2204C80815E282BB00F71E15 /* ECDraggableFileArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7CC15E282BB00F71E15 /* ECDraggableFileArrayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2204C80915E282BB00F71E15 /* ECDraggableFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7CD15E282BB00F71E15 /* ECDraggableFileArrayController.m */; };
 		2204C80A15E282BB00F71E15 /* ECFilledView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7CE15E282BB00F71E15 /* ECFilledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2204C80B15E282BB00F71E15 /* ECFilledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7CF15E282BB00F71E15 /* ECFilledView.m */; };
 		2204C80C15E282BB00F71E15 /* ECGradientTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2204C7D015E282BB00F71E15 /* ECGradientTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,6 +54,18 @@
 		2204C83415E282BB00F71E15 /* ECWhiteBorderButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */; };
 		222D9D4F18896E8F005B9E40 /* ECPlaceholderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		222D9D5018896E8F005B9E40 /* ECPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */; };
+		223D7616188C480A005317E5 /* ECDraggableFileArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D760E188C480A005317E5 /* ECDraggableFileArrayController.h */; };
+		223D7617188C480A005317E5 /* ECDraggableFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D760F188C480A005317E5 /* ECDraggableFileArrayController.m */; };
+		223D7618188C480A005317E5 /* ECDraggableItemsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7610188C480A005317E5 /* ECDraggableItemsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		223D7619188C480A005317E5 /* ECDraggableItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D7611188C480A005317E5 /* ECDraggableItemsController.m */; };
+		223D761A188C480A005317E5 /* ECDraggableTreeController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7612188C480A005317E5 /* ECDraggableTreeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		223D761B188C480A005317E5 /* ECDraggableTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D7613188C480A005317E5 /* ECDraggableTreeController.m */; };
+		223D761E188C53A7005317E5 /* ECDraggableFileTreeController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D761C188C53A7005317E5 /* ECDraggableFileTreeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		223D761F188C53A7005317E5 /* ECDraggableFileTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D761D188C53A7005317E5 /* ECDraggableFileTreeController.m */; };
+		223D7622188C5406005317E5 /* ECDraggableFileItemsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7620188C5406005317E5 /* ECDraggableFileItemsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		223D7623188C5406005317E5 /* ECDraggableFileItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D7621188C5406005317E5 /* ECDraggableFileItemsController.m */; };
+		223D7626188C59E5005317E5 /* ECDraggableArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7624188C59E5005317E5 /* ECDraggableArrayController.h */; };
+		223D7627188C59E5005317E5 /* ECDraggableArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D7625188C59E5005317E5 /* ECDraggableArrayController.m */; };
 		224E132D16C15051003DCB9D /* ECPreferencesWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224E132C16C15051003DCB9D /* ECPreferencesWindow.framework */; };
 		224E133216C15231003DCB9D /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8415E42E7C00E67F50 /* libcrypto.dylib */; };
 		2260A2EA15DFD7290057C9DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2283A3BB14F52E93009142F7 /* Cocoa.framework */; };
@@ -99,10 +107,6 @@
 		2204C7C715E282BB00F71E15 /* ECCompoundLicenseChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECCompoundLicenseChecker.m; sourceTree = "<group>"; };
 		2204C7C815E282BB00F71E15 /* ECDebugMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDebugMenu.h; sourceTree = "<group>"; };
 		2204C7C915E282BB00F71E15 /* ECDebugMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDebugMenu.m; sourceTree = "<group>"; };
-		2204C7CA15E282BB00F71E15 /* ECDraggableArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableArrayController.h; sourceTree = "<group>"; };
-		2204C7CB15E282BB00F71E15 /* ECDraggableArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableArrayController.m; sourceTree = "<group>"; };
-		2204C7CC15E282BB00F71E15 /* ECDraggableFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableFileArrayController.h; sourceTree = "<group>"; };
-		2204C7CD15E282BB00F71E15 /* ECDraggableFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableFileArrayController.m; sourceTree = "<group>"; };
 		2204C7CE15E282BB00F71E15 /* ECFilledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECFilledView.h; sourceTree = "<group>"; };
 		2204C7CF15E282BB00F71E15 /* ECFilledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECFilledView.m; sourceTree = "<group>"; };
 		2204C7D015E282BB00F71E15 /* ECGradientTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGradientTextView.h; sourceTree = "<group>"; };
@@ -142,6 +146,18 @@
 		221662E914FB9315009B975D /* ECAppKitTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ECAppKitTests.plist; path = Resources/ECAppKitTests.plist; sourceTree = SOURCE_ROOT; };
 		222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPlaceholderView.h; sourceTree = "<group>"; };
 		222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPlaceholderView.m; sourceTree = "<group>"; };
+		223D760E188C480A005317E5 /* ECDraggableFileArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableFileArrayController.h; sourceTree = "<group>"; };
+		223D760F188C480A005317E5 /* ECDraggableFileArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableFileArrayController.m; sourceTree = "<group>"; };
+		223D7610188C480A005317E5 /* ECDraggableItemsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableItemsController.h; sourceTree = "<group>"; };
+		223D7611188C480A005317E5 /* ECDraggableItemsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableItemsController.m; sourceTree = "<group>"; };
+		223D7612188C480A005317E5 /* ECDraggableTreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableTreeController.h; sourceTree = "<group>"; };
+		223D7613188C480A005317E5 /* ECDraggableTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableTreeController.m; sourceTree = "<group>"; };
+		223D761C188C53A7005317E5 /* ECDraggableFileTreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableFileTreeController.h; sourceTree = "<group>"; };
+		223D761D188C53A7005317E5 /* ECDraggableFileTreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableFileTreeController.m; sourceTree = "<group>"; };
+		223D7620188C5406005317E5 /* ECDraggableFileItemsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableFileItemsController.h; sourceTree = "<group>"; };
+		223D7621188C5406005317E5 /* ECDraggableFileItemsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableFileItemsController.m; sourceTree = "<group>"; };
+		223D7624188C59E5005317E5 /* ECDraggableArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDraggableArrayController.h; sourceTree = "<group>"; };
+		223D7625188C59E5005317E5 /* ECDraggableArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDraggableArrayController.m; sourceTree = "<group>"; };
 		224E132C16C15051003DCB9D /* ECPreferencesWindow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ECPreferencesWindow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2260A2E915DFD7290057C9DA /* ECAppKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ECAppKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2260A31015DFD96D0057C9DA /* MacDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = MacDebug.xcconfig; sourceTree = "<group>"; };
@@ -336,10 +352,18 @@
 				2204C7C715E282BB00F71E15 /* ECCompoundLicenseChecker.m */,
 				2204C7C815E282BB00F71E15 /* ECDebugMenu.h */,
 				2204C7C915E282BB00F71E15 /* ECDebugMenu.m */,
-				2204C7CA15E282BB00F71E15 /* ECDraggableArrayController.h */,
-				2204C7CB15E282BB00F71E15 /* ECDraggableArrayController.m */,
-				2204C7CC15E282BB00F71E15 /* ECDraggableFileArrayController.h */,
-				2204C7CD15E282BB00F71E15 /* ECDraggableFileArrayController.m */,
+				223D7624188C59E5005317E5 /* ECDraggableArrayController.h */,
+				223D7625188C59E5005317E5 /* ECDraggableArrayController.m */,
+				223D760E188C480A005317E5 /* ECDraggableFileArrayController.h */,
+				223D760F188C480A005317E5 /* ECDraggableFileArrayController.m */,
+				223D7620188C5406005317E5 /* ECDraggableFileItemsController.h */,
+				223D7621188C5406005317E5 /* ECDraggableFileItemsController.m */,
+				223D7610188C480A005317E5 /* ECDraggableItemsController.h */,
+				223D7611188C480A005317E5 /* ECDraggableItemsController.m */,
+				223D7612188C480A005317E5 /* ECDraggableTreeController.h */,
+				223D7613188C480A005317E5 /* ECDraggableTreeController.m */,
+				223D761C188C53A7005317E5 /* ECDraggableFileTreeController.h */,
+				223D761D188C53A7005317E5 /* ECDraggableFileTreeController.m */,
 				2204C7CE15E282BB00F71E15 /* ECFilledView.h */,
 				2204C7CF15E282BB00F71E15 /* ECFilledView.m */,
 				2204C7D015E282BB00F71E15 /* ECGradientTextView.h */,
@@ -394,15 +418,16 @@
 				2204C7FC15E282BB00F71E15 /* ECAppDelegate.h in Headers */,
 				2204C80015E282BB00F71E15 /* ECCompletionTextView.h in Headers */,
 				2204C80215E282BB00F71E15 /* ECCompoundLicenseChecker.h in Headers */,
-				2204C80615E282BB00F71E15 /* ECDraggableArrayController.h in Headers */,
-				2204C80815E282BB00F71E15 /* ECDraggableFileArrayController.h in Headers */,
 				222D9D4F18896E8F005B9E40 /* ECPlaceholderView.h in Headers */,
 				2204C80A15E282BB00F71E15 /* ECFilledView.h in Headers */,
 				2204C80C15E282BB00F71E15 /* ECGradientTextView.h in Headers */,
+				223D7626188C59E5005317E5 /* ECDraggableArrayController.h in Headers */,
 				2204C80E15E282BB00F71E15 /* ECIsEmptyTransformer.h in Headers */,
 				2204C81015E282BB00F71E15 /* ECIsNotEmptyTransformer.h in Headers */,
 				2204C81215E282BB00F71E15 /* ECIsValueTransformer.h in Headers */,
 				2204C81415E282BB00F71E15 /* ECLegalFilenameFormatter.h in Headers */,
+				223D761A188C480A005317E5 /* ECDraggableTreeController.h in Headers */,
+				223D761E188C53A7005317E5 /* ECDraggableFileTreeController.h in Headers */,
 				2204C81615E282BB00F71E15 /* ECLicenseChecker.h in Headers */,
 				2204C81815E282BB00F71E15 /* ECMacStore.h in Headers */,
 				2204C81A15E282BB00F71E15 /* ECMacStoreDifferentVersion.h in Headers */,
@@ -411,10 +436,13 @@
 				2204C82015E282BB00F71E15 /* ECMacStoreSaved.h in Headers */,
 				2204C82215E282BB00F71E15 /* ECMacStoreTest.h in Headers */,
 				2204C82915E282BB00F71E15 /* ECRoundedImageCell.h in Headers */,
+				223D7618188C480A005317E5 /* ECDraggableItemsController.h in Headers */,
 				2204C82B15E282BB00F71E15 /* ECRoundedView.h in Headers */,
 				2204C82F15E282BB00F71E15 /* ECTextFieldCell.h in Headers */,
 				2204C83115E282BB00F71E15 /* ECTransparentWindow.h in Headers */,
 				2204C83315E282BB00F71E15 /* ECWhiteBorderButtonCell.h in Headers */,
+				223D7622188C5406005317E5 /* ECDraggableFileItemsController.h in Headers */,
+				223D7616188C480A005317E5 /* ECDraggableFileArrayController.h in Headers */,
 				22E85D8915E42F6D00E67F50 /* ECAppKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,10 +563,10 @@
 				2204C80115E282BB00F71E15 /* ECCompletionTextView.m in Sources */,
 				222D9D5018896E8F005B9E40 /* ECPlaceholderView.m in Sources */,
 				2204C80315E282BB00F71E15 /* ECCompoundLicenseChecker.m in Sources */,
-				2204C80715E282BB00F71E15 /* ECDraggableArrayController.m in Sources */,
-				2204C80915E282BB00F71E15 /* ECDraggableFileArrayController.m in Sources */,
+				223D7623188C5406005317E5 /* ECDraggableFileItemsController.m in Sources */,
 				2204C80B15E282BB00F71E15 /* ECFilledView.m in Sources */,
 				2204C80D15E282BB00F71E15 /* ECGradientTextView.m in Sources */,
+				223D7627188C59E5005317E5 /* ECDraggableArrayController.m in Sources */,
 				2204C80F15E282BB00F71E15 /* ECIsEmptyTransformer.m in Sources */,
 				2204C81115E282BB00F71E15 /* ECIsNotEmptyTransformer.m in Sources */,
 				2204C81315E282BB00F71E15 /* ECIsValueTransformer.m in Sources */,
@@ -549,9 +577,13 @@
 				2204C81D15E282BB00F71E15 /* ECMacStoreExact.m in Sources */,
 				2204C81F15E282BB00F71E15 /* ECMacStoreReceipt.m in Sources */,
 				2204C82115E282BB00F71E15 /* ECMacStoreSaved.m in Sources */,
+				223D7619188C480A005317E5 /* ECDraggableItemsController.m in Sources */,
 				2204C82315E282BB00F71E15 /* ECMacStoreTest.m in Sources */,
+				223D7617188C480A005317E5 /* ECDraggableFileArrayController.m in Sources */,
 				2204C82A15E282BB00F71E15 /* ECRoundedImageCell.m in Sources */,
+				223D761B188C480A005317E5 /* ECDraggableTreeController.m in Sources */,
 				2204C82C15E282BB00F71E15 /* ECRoundedView.m in Sources */,
+				223D761F188C53A7005317E5 /* ECDraggableFileTreeController.m in Sources */,
 				2204C83015E282BB00F71E15 /* ECTextFieldCell.m in Sources */,
 				2204C83215E282BB00F71E15 /* ECTransparentWindow.m in Sources */,
 				2204C7FA15E282BB00F71E15 /* ECAboutBoxController.m in Sources */,

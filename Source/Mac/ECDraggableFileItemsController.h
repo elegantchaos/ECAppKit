@@ -1,4 +1,3 @@
-
 // --------------------------------------------------------------------------
 //  Copyright 2014 Sam Deane, Elegant Chaos. All rights reserved.
 //  This source code is distributed under the terms of Elegant Chaos's 
@@ -7,10 +6,12 @@
 
 #import "ECDraggableItemsController.h"
 
-@interface ECDraggableArrayController : NSArrayController<NSCollectionViewDelegate, ECDraggableItemContentController>
-@property (strong, nonatomic) ECDraggableItemsController* itemsController;
+@interface ECDraggableFileItemsController : ECDraggableItemsController
 
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSTableView*)tableView;
+- (NSString*)typeOfItem:(id)item;
+- (NSString*)makeFileFromItem:(id)item atDestination:(NSURL*)url;
+- (BOOL)addFiles:(NSArray*)files atIndex:(NSInteger)index;
+- (NSArray*)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSIndexSet *)indexSet;
 
 @end
 

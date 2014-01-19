@@ -4,15 +4,13 @@
 //  liberal license: http://www.elegantchaos.com/license/liberal
 // --------------------------------------------------------------------------
 
-#import "ECDraggableFileArrayController.h"
-#import "ECDraggableFileItemsController.h"
+#import "ECDraggableItemsController.h"
 
-@implementation ECDraggableFileArrayController
+@interface ECDraggableTreeController : NSTreeController<NSOutlineViewDelegate, ECDraggableItemContentController>
+@property (strong, nonatomic) ECDraggableItemsController* itemsController;
 
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSTableView*)tableView
-{
-    return [ECDraggableFileItemsController itemsControllerForContentController:self view:tableView];
-}
+-(ECDraggableItemsController*)makeItemsControllerForTableView:(NSOutlineView*)outlineView;
 
 @end
+
 
