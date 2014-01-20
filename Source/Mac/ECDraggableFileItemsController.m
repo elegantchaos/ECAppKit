@@ -36,22 +36,22 @@ ECDefineDebugChannel(ECDraggableFileItemsControllerChannel);
 //! Return types to write when starting a drag of some rows.
 // --------------------------------------------------------------------------
 
-- (NSArray*)typesToDragForRows:(NSIndexSet*)rowIndexes
+- (NSArray*)typesToDragForIndexes:(NSSet *)indexes
 {
-    return [[super typesToDragForRows:rowIndexes] arrayByAddingObject:NSFilesPromisePboardType];
+    return [[super typesToDragForIndexes:indexes] arrayByAddingObject:NSFilesPromisePboardType];
 }
 
 // --------------------------------------------------------------------------
 //! Write data of a particular type to a pasteboard for some rows.
 // --------------------------------------------------------------------------
 
-- (void)writeDataOfType:(NSString*)type toPasteboard:(NSPasteboard*)pasteboard forRows:(NSIndexSet*)rowIndexes
+- (void)writeDataOfType:(NSString*)type toPasteboard:(NSPasteboard*)pasteboard forIndexes:(NSSet *)indexes
 {
     if ([type isEqualToString:NSFilesPromisePboardType])
     {
         // build array of file types
-        NSMutableArray* types = [NSMutableArray arrayWithCapacity:[rowIndexes count]];
-        NSArray* items = [self.contentController objectsAtIndexes:rowIndexes];
+        NSMutableArray* types = [NSMutableArray arrayWithCapacity:[indexes count]];
+        NSArray* items = [self.contentController itemsAtIndexes:indexes];
         for (id item in items)
         {
 			NSString* itemType = [self typeOfItem:item];
@@ -63,7 +63,7 @@ ECDefineDebugChannel(ECDraggableFileItemsControllerChannel);
     }
     else
     {
-        [super writeDataOfType:type toPasteboard:pasteboard forRows:rowIndexes];
+        [super writeDataOfType:type toPasteboard:pasteboard forIndexes:indexes];
     }
 }
 
@@ -71,10 +71,10 @@ ECDefineDebugChannel(ECDraggableFileItemsControllerChannel);
 //! Copy/make the dropped items and return their names.
 // --------------------------------------------------------------------------
 
-- (NSArray*)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSIndexSet *)indexSet
+- (NSArray*)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSSet *)indexes view:(NSView *)view
 {
-    NSMutableArray* names = [NSMutableArray arrayWithCapacity:[indexSet count]];
-    NSArray* items = [self.contentController objectsAtIndexes:indexSet];
+    NSMutableArray* names = [NSMutableArray arrayWithCapacity:[indexes count]];
+    NSArray* items = [self.contentController itemsAtIndexes:indexes];
     for (id item in items)
     {
         NSString* name = [self makeFileFromItem:item atDestination:dropDestination];
@@ -83,28 +83,6 @@ ECDefineDebugChannel(ECDraggableFileItemsControllerChannel);
     
     ECDebug(ECDraggableFileItemsControllerChannel, @"returning names %@ for dropped items %@", names, items);
     return names;
-}
-
-// --------------------------------------------------------------------------
-//! Handle drop of files from a table.
-// --------------------------------------------------------------------------
-
-- (NSArray*)tableView:(NSTableView*)tableView namesOfPromisedFilesDroppedAtDestination:(NSURL*)destination forDraggedRowsWithIndexes:(NSIndexSet*)indexes
-{
-	NSArray* result = [self namesOfPromisedFilesDroppedAtDestination:destination forDraggedRowsWithIndexes:indexes];
-	
-	return result;
-}
-
-// --------------------------------------------------------------------------
-//! Handle drop of files form a collection view.
-// --------------------------------------------------------------------------
-
-- (NSArray *)collectionView:(NSCollectionView*)collectionView namesOfPromisedFilesDroppedAtDestination:(NSURL*)destination forDraggedItemsAtIndexes:(NSIndexSet *)indexes
-{
-	NSArray* result = [self namesOfPromisedFilesDroppedAtDestination:destination forDraggedRowsWithIndexes:indexes];
-	
-	return result;
 }
 
 // --------------------------------------------------------------------------

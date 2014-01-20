@@ -17,10 +17,7 @@
 - (NSArray *)outlineView:(NSOutlineView *)outlineView namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedItems:(NSArray *)items
 {
     ECDraggableFileItemsController* itemsController = (ECDraggableFileItemsController*)self.itemsController;
-    
-    NSIndexSet* indexSet = nil;
-    // TODO: make indexSet out of items array
-    [itemsController namesOfPromisedFilesDroppedAtDestination:dropDestination forDraggedRowsWithIndexes:indexSet];
+    [itemsController namesOfPromisedFilesDroppedAtDestination:dropDestination forDraggedRowsWithIndexes:[NSSet setWithArray:items] view:outlineView];
     return nil;
 }
 

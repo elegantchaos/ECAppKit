@@ -6,7 +6,7 @@
 
 #import "ECDraggableItemsController.h"
 
-NSString *const RowIndexesType = @"com.elegantchaos.ecappkit.rowindexes";
+NSString *const ItemIndexesType = @"com.elegantchaos.ecappkit.rowindexes";
 
 @interface ECDraggableItemsController()
 @end
@@ -72,30 +72,22 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 
 - (NSArray*)typesToRegister
 {
-    return [NSArray arrayWithObject:RowIndexesType];
+    return [NSArray arrayWithObject:ItemIndexesType];
 }
 
-// --------------------------------------------------------------------------
-//! Return types to write when starting a drag of some rows.
-// --------------------------------------------------------------------------
-
-- (NSArray*)typesToDragForRows:(NSIndexSet*)rowIndexes
+- (NSArray*)typesToDragForIndexes:(NSSet *)indexes
 {
-    return [NSArray arrayWithObject:RowIndexesType];
+    return [NSArray arrayWithObject:ItemIndexesType];
 }
 
-// --------------------------------------------------------------------------
-//! Write data of a particular type to a pasteboard for some rows.
-// --------------------------------------------------------------------------
-
-- (void)writeDataOfType:(NSString*)type toPasteboard:(NSPasteboard*)pasteboard forRows:(NSIndexSet*)rowIndexes
+- (void)writeDataOfType:(NSString*)type toPasteboard:(NSPasteboard*)pasteboard forIndexes:(NSSet*)indexes
 {
-    if ([type isEqualToString:RowIndexesType])
+    if ([type isEqualToString:ItemIndexesType])
     {
         ECDebug(ECDraggableItemsControllerChannel, @"writing row indexes");
         
-        NSData* rowIndexesArchive = [NSKeyedArchiver archivedDataWithRootObject:rowIndexes];
-        [pasteboard setData:rowIndexesArchive forType:RowIndexesType];
+        NSData* itemIndexesArchive = [NSKeyedArchiver archivedDataWithRootObject:indexes];
+        [pasteboard setData:itemIndexesArchive forType:ItemIndexesType];
     }
 }
 
@@ -123,17 +115,15 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 //! Perform a move of some rows.
 // --------------------------------------------------------------------------
 
-- (BOOL)performMoveToIndex:(NSUInteger)index withPasteboard:(NSPasteboard*)pasteboard
+- (BOOL)performMoveToIndex:(NSIndexPath*)index withPasteboard:(NSPasteboard*)pasteboard
 {
-    NSData* rowsData = [pasteboard dataForType:RowIndexesType];
-    NSIndexSet* indexSet = [NSKeyedUnarchiver unarchiveObjectWithData:rowsData];
+    NSData* rowsData = [pasteboard dataForType:ItemIndexesType];
+    NSSet* indexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowsData];
     
-    NSIndexSet *destinationIndexes = [self moveObjectsInArrangedObjectsFromIndexes:indexSet toIndex:index];
-    
-    // set selected rows to those that were just moved
+    NSSet* destinationIndexes = [self.contentController moveObjectsFromIndexes:indexes toIndexPath:index];
     [self.contentController setSelectionIndexes:destinationIndexes];
     
-    ECDebug(ECDraggableItemsControllerChannel, @"moved items %@ to %@", indexSet, destinationIndexes);
+    ECDebug(ECDraggableItemsControllerChannel, @"moved items %@ to %@", indexes, destinationIndexes);
     
     return YES;
 }
@@ -142,7 +132,7 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 //! Perform a local copy of some rows.
 // --------------------------------------------------------------------------
 
-- (BOOL)performLocalCopyToIndex:(NSUInteger)index withPasteboard:(NSPasteboard*)pasteboard
+- (BOOL)performLocalCopyToIndex:(NSIndexPath*)index withPasteboard:(NSPasteboard*)pasteboard
 {
     ECDebug(ECDraggableItemsControllerChannel, @"copied items");
     
@@ -153,14 +143,14 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 //! Perform a remote copy of some data from elsewhere.
 // --------------------------------------------------------------------------
 
-- (BOOL)performRemoteCopyToIndex:(NSUInteger)index withPasteboard:(NSPasteboard*)pasteboard
+- (BOOL)performRemoteCopyToIndex:(NSIndexPath*)index withPasteboard:(NSPasteboard*)pasteboard
 {
     ECDebug(ECDraggableItemsControllerChannel, @"accepted drop for table");
     
     return NO;
 }
 
-- (NSDragOperation)validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)index view:(NSView*)view
+- (NSDragOperation)validateDrop:(id <NSDraggingInfo>)info proposedIndex:(NSIndexPath *)proposedIndex view:(NSView *)view
 {
 	ECDebug(ECDraggableItemsControllerChannel, @"validate drop");
     
@@ -171,14 +161,15 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
     return dragOp;
 }
 
-- (BOOL)acceptDrop:(id <NSDraggingInfo>)info item:(id)item childIndex:(NSInteger)index view:(NSView*)view
+- (BOOL)acceptDrop:(id <NSDraggingInfo>)info index:(NSIndexPath *)index view:(NSView *)view
 {
 	ECDebug(ECDraggableItemsControllerChannel, @"accept drop");
 	
-    if (index < 0)
-    {
-		index = 0;
-	}
+    // TODO: validate path
+//    if (index < 0)
+//    {
+//		index = 0;
+//	}
     
     NSPasteboard* pasteboard = [info draggingPasteboard];
     if (![self dragIsCopyForView:view info:info])
@@ -196,58 +187,21 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 }
 
 
--(NSIndexSet *) moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet*)fromIndexSet toIndex:(NSUInteger)insertIndex
-{
-	// If any of the removed objects come before the insertion index,
-	// we need to decrement the index appropriately
-	NSUInteger adjustedInsertIndex =
-	insertIndex - [fromIndexSet countOfIndexesInRange:(NSRange){0, insertIndex}];
-	NSRange destinationRange = NSMakeRange(adjustedInsertIndex, [fromIndexSet count]);
-	NSIndexSet *destinationIndexes = [NSIndexSet indexSetWithIndexesInRange:destinationRange];
-	
-    [self.contentController moveItemsFromIndexSet:fromIndexSet toIndexes:destinationIndexes];
-	
-	return destinationIndexes;
-}
 
 // --------------------------------------------------------------------------
 //! Write some items to a pasteboard.
 // --------------------------------------------------------------------------
 
-- (BOOL)writeItemsWithIndexes:(NSIndexSet*)indexes toPasteboard:(NSPasteboard*)pasteboard view:(NSView *)view
+- (BOOL)writeItemsWithIndexes:(NSSet*)indexes toPasteboard:(NSPasteboard*)pasteboard view:(NSView *)view
 {
-    NSArray* types = [self typesToDragForRows:indexes];
+    NSArray* types = [self typesToDragForIndexes:indexes];
     [pasteboard declareTypes:types owner:self];
     for (NSString* type in types)
     {
-        [self writeDataOfType:type toPasteboard:pasteboard forRows:indexes];
+        [self writeDataOfType:type toPasteboard:pasteboard forIndexes:indexes];
     }
     
     return YES;
-}
-
-- (BOOL)view:(NSView*)view acceptDrop:(id <NSDraggingInfo>)info index:(NSInteger)index dropOperation:(NSTableViewDropOperation)op
-{
-	ECDebug(ECDraggableItemsControllerChannel, @"accept drop");
-	
-    if (index < 0)
-    {
-		index = 0;
-	}
-    
-    NSPasteboard* pasteboard = [info draggingPasteboard];
-    if (![self dragIsCopyForView:view info:info])
-    {
-        return [self performMoveToIndex:index withPasteboard:pasteboard];
-    }
-    else if (view == [info draggingSource])
-    {
-        return [self performLocalCopyToIndex:index withPasteboard:pasteboard];
-    }
-    else
-    {
-        return [self performRemoteCopyToIndex:index withPasteboard:pasteboard];
-    }
 }
 
 @end

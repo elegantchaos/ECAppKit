@@ -21,21 +21,24 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pasteboard
 {
-    NSMutableIndexSet* indexSet = [NSMutableIndexSet new];
-    for (NSTreeNode* item in items)
-        [indexSet addIndex:item.indexPath];
-    // TODO: make indexSet from items
-    return [self.itemsController writeItemsWithIndexes:indexSet toPasteboard:pasteboard view:outlineView];
+    NSArray* paths = [items valueForKey:@"indexPath"];
+    NSSet* indexes = [NSSet setWithArray:paths];
+
+    return [self.itemsController writeItemsWithIndexes:indexes toPasteboard:pasteboard view:outlineView];
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)item childIndex:(NSInteger)index
 {
-    return [self.itemsController acceptDrop:info item:item childIndex:index view:outlineView];
+    NSIndexPath* path = [item indexPath];
+    NSIndexPath* childPath = [path indexPathByAddingIndex:index];
+    return [self.itemsController acceptDrop:info index:childPath view:outlineView];
 }
 
 - (NSDragOperation)outlineView:(NSOutlineView *)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)index
 {
-    NSDragOperation result = [self.itemsController validateDrop:info proposedItem:item proposedChildIndex:index view:outlineView];
+    NSIndexPath* path = [item indexPath];
+    NSIndexPath* childPath = [path indexPathByAddingIndex:index];
+    NSDragOperation result = [self.itemsController validateDrop:info proposedIndex:childPath view:outlineView];
 
     return result;
 }
@@ -53,23 +56,31 @@
     return result;
 }
 
+- (NSArray*)itemsAtIndexes:(NSSet *)indexes
+{
+    NSMutableArray* result = [NSMutableArray array];
+    id objects = self.arrangedObjects;
+    for (NSIndexPath* path in indexes)
+    {
+        id object = [objects descendantNodeAtIndexPath:path];
+        [result addObject:object];
+    }
+    
+    return result;
+}
+
 - (BOOL)setSelectionIndexes:(NSIndexSet *)indexes
 {
 //    return [super setSelectionIndexPaths:[indexes ]]
     return YES;
 }
 
-- (void)moveItemsFromIndexSet:(NSIndexSet*)fromIndexSet toIndexes:(NSIndexSet*)destinationIndexes
+- (NSSet*)moveObjectsFromIndexes:(NSSet *)fromIndexSet toIndexPath:(NSIndexPath *)path
 {
 //    NSArray *objectsToMove = [[self arrangedObjects] objectsAtIndexes:fromIndexSet];
 //	[self removeObjectsAtArrangedObjectIndexes:fromIndexSet];
 //	[self insertObjects:objectsToMove atArrangedObjectIndexes:destinationIndexes];
-}
-
-- (NSArray*)objectsAtIndexes:(NSIndexSet *)indexes
-{
-    NSArray* items = [[self arrangedObjects] objectsAtIndexes:indexes];
-    return items;
+    return nil;
 }
 
 

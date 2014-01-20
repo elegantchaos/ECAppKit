@@ -11,7 +11,7 @@
 - (NSString*)typeOfItem:(id)item;
 - (NSString*)makeFileFromItem:(id)item atDestination:(NSURL*)url;
 - (BOOL)addFiles:(NSArray*)files atIndex:(NSInteger)index;
-- (NSArray*)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSIndexSet *)indexSet;
+- (NSArray*)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSSet*)indexes view:(NSView*)view;
 
 @end
 

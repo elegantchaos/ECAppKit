@@ -25,8 +25,9 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 //! Handle start of a drag.
 // --------------------------------------------------------------------------
 
-- (BOOL)tableView:(NSTableView*)view writeRowsWithIndexes:(NSIndexSet*)indexes toPasteboard:(NSPasteboard*)pasteboard
+- (BOOL)tableView:(NSTableView*)view writeRowsWithIndexes:(NSIndexSet*)indexSet toPasteboard:(NSPasteboard*)pasteboard
 {
+    NSSet* indexes = [self indexSetAsSet:indexSet];
 	BOOL result = [self.itemsController writeItemsWithIndexes:indexes toPasteboard:pasteboard view:view];
 	
 	return result;
@@ -39,7 +40,11 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 - (NSDragOperation)tableView:(NSTableView*)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(int)row proposedDropOperation:(NSTableViewDropOperation)op
 {
 	ECDebug(ECDraggableArrayControllerChannel, @"validate drop");
-    NSDragOperation result = [self.itemsController validateDrop:info proposedItem:nil proposedChildIndex:row view:tableView];
+    if (row < 0)
+        row = 0;
+    
+    NSIndexPath* index = [NSIndexPath indexPathWithIndex:row];
+    NSDragOperation result = [self.itemsController validateDrop:info proposedIndex:index view:tableView];
     [tableView setDropRow:row dropOperation:NSTableViewDropAbove];
 	
     return result;
@@ -51,7 +56,8 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 
 - (BOOL)tableView:(NSTableView*)tableView acceptDrop:(id <NSDraggingInfo>)info row:(int)row dropOperation:(NSTableViewDropOperation)op
 {
-	BOOL result = [self.itemsController acceptDrop:info item:nil childIndex:row view:tableView];
+    NSIndexPath* index = [NSIndexPath indexPathWithIndex:row];
+	BOOL result = [self.itemsController acceptDrop:info index:index view:tableView];
 	
 	return result;
 }
@@ -61,13 +67,18 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 - (NSDragOperation)collectionView:(NSCollectionView*)collectionView validateDrop:(id<NSDraggingInfo>)info proposedIndex:(NSInteger*)proposedDropIndex dropOperation:(NSCollectionViewDropOperation*)proposedDropOperation
 {
 	ECDebug(ECDraggableArrayControllerChannel, @"validate drop");
-	NSDragOperation result = [self.itemsController validateDrop:info proposedItem:nil proposedChildIndex:*proposedDropIndex view:collectionView];
+    if (*proposedDropIndex < 0)
+        *proposedDropIndex = 0;
+    
+    NSIndexPath* index = [NSIndexPath indexPathWithIndex:*proposedDropIndex];
+	NSDragOperation result = [self.itemsController validateDrop:info proposedIndex:index view:collectionView];
     return result;
 
 }
 
-- (BOOL)collectionView:(NSCollectionView*)collectionView writeItemsAtIndexes:(NSIndexSet*)indexes toPasteboard:(NSPasteboard *)pasteboard
+- (BOOL)collectionView:(NSCollectionView*)collectionView writeItemsAtIndexes:(NSIndexSet*)indexSet toPasteboard:(NSPasteboard *)pasteboard
 {
+    NSSet* indexes = [self indexSetAsSet:indexSet];
     BOOL result = [self.itemsController writeItemsWithIndexes:indexes toPasteboard:pasteboard view:collectionView];
     
     return result;
@@ -75,23 +86,56 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 
 - (BOOL)collectionView:(NSCollectionView *)collectionView acceptDrop:(id <NSDraggingInfo>)info index:(NSInteger)index dropOperation:(NSCollectionViewDropOperation)operation
 {
-	BOOL result = [self.itemsController acceptDrop:info item:nil childIndex:index view:collectionView];
+    NSIndexPath* path = [NSIndexPath indexPathWithIndex:index];
+	BOOL result = [self.itemsController acceptDrop:info index:path view:collectionView];
 	
 	return result;
 }
 
-- (void)moveItemsFromIndexSet:(NSIndexSet*)fromIndexSet toIndexes:(NSIndexSet*)destinationIndexes
+-(NSSet*)moveObjectsFromIndexes:(NSSet*)fromIndexes toIndexPath:(NSIndexPath *)path
 {
+    NSInteger insertIndex = [path indexAtPosition:0];
+    NSIndexSet* fromIndexSet = [self indexesAsIndexSet:fromIndexes];
+	// If any of the removed objects come before the insertion index,
+	// we need to decrement the index appropriately
+	NSUInteger adjustedInsertIndex =
+	insertIndex - [fromIndexSet countOfIndexesInRange:(NSRange){0, insertIndex}];
+	NSRange destinationRange = NSMakeRange(adjustedInsertIndex, [fromIndexSet count]);
+	NSIndexSet *destinationIndexes = [NSIndexSet indexSetWithIndexesInRange:destinationRange];
+	
     NSArray *objectsToMove = [[self arrangedObjects] objectsAtIndexes:fromIndexSet];
     [self removeObjectsAtArrangedObjectIndexes:fromIndexSet];
     [self insertObjects:objectsToMove atArrangedObjectIndexes:destinationIndexes];
+
+	NSSet* result = [self indexSetAsSet:destinationIndexes];
+	return result;
 }
 
-- (NSArray*)objectsAtIndexes:(NSIndexSet *)indexes
+- (NSArray*)itemsAtIndexes:(NSSet*)indexes
 {
-    NSArray* items = [[self arrangedObjects] objectsAtIndexes:indexes];
+    NSIndexSet* indexSet = [self indexesAsIndexSet:indexes];
+    NSArray* items = [[self arrangedObjects] objectsAtIndexes:indexSet];
     return items;
 }
 
+- (NSSet*)indexSetAsSet:(NSIndexSet*)indexSet
+{
+    NSUInteger count = [indexSet count];
+    NSMutableSet* result = [NSMutableSet setWithCapacity:count];
+    [indexSet enumerateRangesUsingBlock:^(NSRange range, BOOL *stop) {
+        NSUInteger last = range.location + range.length;
+        for (NSUInteger n = range.location; n < last; ++n)
+        {
+            [result addObject:[NSIndexPath indexPathWithIndex:n]];
+        }
+    }];
+    
+    return result;
+}
+
+- (NSIndexSet*)indexesAsIndexSet:(NSSet*)indexes
+{
+    return nil;
+}
 @end
 

@@ -5,9 +5,9 @@
 // --------------------------------------------------------------------------
 
 @protocol ECDraggableItemContentController <NSObject>
-- (NSArray*)objectsAtIndexes:(NSIndexSet*)indexes;
-- (BOOL)setSelectionIndexes:(NSIndexSet *)indexes;
-- (void)moveItemsFromIndexSet:(NSIndexSet*)fromIndexSet toIndexes:(NSIndexSet*)destinationIndexes;
+- (NSArray*)itemsAtIndexes:(NSSet*)indexes;
+- (BOOL)setSelectionIndexes:(NSSet*)indexes;
+- (NSSet*)moveObjectsFromIndexes:(NSSet*)fromIndexSet toIndexPath:(NSIndexPath*)path;
 @end
 
 @interface ECDraggableItemsController : NSObject
@@ -24,11 +24,22 @@
 - (NSDragOperation)localSourceMaskToUse;
 - (NSDragOperation)remoteSourceMaskToUse;
 - (NSArray*)typesToRegister;
-- (NSArray*)typesToDragForRows:(NSIndexSet*)rowIndexes;
-- (BOOL)writeItemsWithIndexes:(NSIndexSet*)indexes toPasteboard:(NSPasteboard*)pasteboard view:(NSView*)view;
-- (BOOL)acceptDrop:(id <NSDraggingInfo>)info item:(id)item childIndex:(NSInteger)index view:(NSView*)view;
-- (NSDragOperation)validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)index view:(NSView*)view;
-- (void)writeDataOfType:(NSString*)type toPasteboard:(NSPasteboard*)pasteboard forRows:(NSIndexSet*)rowIndexes;
+
+/**
+ Return types to write when starting a drag of some items.
+ */
+
+- (NSArray*)typesToDragForIndexes:(NSSet*)indexes;
+
+- (BOOL)writeItemsWithIndexes:(NSSet*)indexes toPasteboard:(NSPasteboard*)pasteboard view:(NSView *)view;
+- (BOOL)acceptDrop:(id <NSDraggingInfo>)info index:(NSIndexPath*)index view:(NSView*)view;
+- (NSDragOperation)validateDrop:(id <NSDraggingInfo>)info proposedIndex:(NSIndexPath*)proposedIndex view:(NSView*)view;
+
+/**
+ Write data of a particular type to a pasteboard for some rows.
+ */
+
+- (void)writeDataOfType:(NSString*)type toPasteboard:(NSPasteboard*)pasteboard forIndexes:(NSSet*)indexes;
 
 @end
 

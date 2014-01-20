@@ -11,6 +11,7 @@
 @property (strong, nonatomic) ECDraggableItemsController* itemsController;
 
 -(ECDraggableItemsController*)makeItemsControllerForTableView:(NSTableView*)tableView;
+- (NSSet*)indexSetAsSet:(NSIndexSet*)indexSet;
 
 @end
 
