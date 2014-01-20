@@ -220,15 +220,21 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 
 - (BOOL)writeItemsWithIndexes:(NSSet*)indexes toPasteboard:(NSPasteboard*)pasteboard view:(NSView *)view
 {
+    BOOL writtenSomething = NO;
     self.sourceIndexes = indexes;
     NSArray* types = [self typesToDragForIndexes:indexes];
     [pasteboard declareTypes:types owner:self];
     for (NSString* type in types)
     {
-        [self writeDataOfType:type toPasteboard:pasteboard forIndexes:indexes];
+        NSSet* itemsToWrite = [self.contentController indexesOfItemsAtIndexes:indexes thatCanWriteType:type];
+        if ([itemsToWrite count] > 0)
+        {
+            [self writeDataOfType:type toPasteboard:pasteboard forIndexes:itemsToWrite];
+            writtenSomething = YES;
+        }
     }
     
-    return YES;
+    return writtenSomething;
 }
 
 @end

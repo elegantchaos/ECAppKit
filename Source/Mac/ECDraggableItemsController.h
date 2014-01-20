@@ -8,6 +8,11 @@
 - (NSArray*)itemsAtIndexes:(NSSet*)indexes;
 - (BOOL)setSelection:(NSSet*)indexes;
 - (NSSet*)moveObjectsFromIndexes:(NSSet*)fromIndexSet toIndexPath:(NSIndexPath*)path;
+- (NSSet*)indexesOfItemsAtIndexes:(NSSet*)indexes thatCanWriteType:(NSString*)type;
+@end
+
+@protocol ECDraggableItem <NSObject>
+- (BOOL)canWriteType:(NSString*)type;
 @end
 
 @interface ECDraggableItemsController : NSObject

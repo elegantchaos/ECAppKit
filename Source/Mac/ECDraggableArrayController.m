@@ -128,6 +128,11 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
     return items;
 }
 
+- (NSSet*)indexesOfItemsAtIndexes:(NSSet *)indexes thatCanWriteType:(NSString *)type
+{
+    return indexes;
+}
+
 - (NSSet*)indexSetAsSet:(NSIndexSet*)indexSet
 {
     NSUInteger count = [indexSet count];

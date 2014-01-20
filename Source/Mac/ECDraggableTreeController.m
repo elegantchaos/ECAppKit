@@ -72,6 +72,23 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
     return result;
 }
 
+- (NSSet*)indexesOfItemsAtIndexes:(NSSet *)indexes thatCanWriteType:(NSString *)type
+{
+    NSMutableSet* result = [NSMutableSet new];
+    NSArray* nodes = [self itemsAtIndexes:indexes];
+    for (NSTreeNode* node in nodes)
+    {
+        BOOL addNode = YES;
+        if ([node.representedObject respondsToSelector:@selector(canWriteType:)])
+            addNode = [node.representedObject canWriteType:type];
+        
+        if (addNode)
+            [result addObject:node.indexPath];
+    }
+    
+    return result;
+}
+
 - (BOOL)setSelection:(NSSet *)indexes
 {
     return [self setSelectionIndexPaths:[indexes allObjects]];
