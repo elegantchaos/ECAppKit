@@ -122,7 +122,7 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
     NSSet* indexes = [NSKeyedUnarchiver unarchiveObjectWithData:rowsData];
     
     NSSet* destinationIndexes = [self.contentController moveObjectsFromIndexes:indexes toIndexPath:index];
-    [self.contentController setSelectionIndexes:destinationIndexes];
+    [self.contentController setSelection:destinationIndexes];
     
     ECDebug(ECDraggableItemsControllerChannel, @"moved items %@ to %@", indexes, destinationIndexes);
     

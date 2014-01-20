@@ -10,7 +10,7 @@
 @interface ECDraggableArrayController : NSArrayController<NSCollectionViewDelegate, ECDraggableItemContentController>
 @property (strong, nonatomic) ECDraggableItemsController* itemsController;
 
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSTableView*)tableView;
+-(ECDraggableItemsController*)makeItemsControllerForView:(NSView*)tableView;
 - (NSSet*)indexSetAsSet:(NSIndexSet*)indexSet;
 
 @end

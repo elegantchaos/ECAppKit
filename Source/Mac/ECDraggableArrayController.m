@@ -12,11 +12,11 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    if (_itemsController)
-        _itemsController = [self makeItemsControllerForTableView:tableView];
+    if (!_itemsController)
+        _itemsController = [self makeItemsControllerForView:tableView];
 }
 
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSTableView*)tableView
+-(ECDraggableItemsController*)makeItemsControllerForView:(NSView*)tableView
 {
     return [ECDraggableItemsController itemsControllerForContentController:self view:tableView];
 }
@@ -66,6 +66,7 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 
 - (NSDragOperation)collectionView:(NSCollectionView*)collectionView validateDrop:(id<NSDraggingInfo>)info proposedIndex:(NSInteger*)proposedDropIndex dropOperation:(NSCollectionViewDropOperation*)proposedDropOperation
 {
+
 	ECDebug(ECDraggableArrayControllerChannel, @"validate drop");
     if (*proposedDropIndex < 0)
         *proposedDropIndex = 0;
@@ -78,6 +79,9 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 
 - (BOOL)collectionView:(NSCollectionView*)collectionView writeItemsAtIndexes:(NSIndexSet*)indexSet toPasteboard:(NSPasteboard *)pasteboard
 {
+    if (!_itemsController)
+        _itemsController = [self makeItemsControllerForView:collectionView];
+
     NSSet* indexes = [self indexSetAsSet:indexSet];
     BOOL result = [self.itemsController writeItemsWithIndexes:indexes toPasteboard:pasteboard view:collectionView];
     
@@ -90,6 +94,12 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 	BOOL result = [self.itemsController acceptDrop:info index:path view:collectionView];
 	
 	return result;
+}
+
+- (BOOL)setSelection:(NSSet*)indexes
+{
+    NSIndexSet* indexSet = [self indexesAsIndexSet:indexes];
+    return [self setSelectionIndexes:indexSet];
 }
 
 -(NSSet*)moveObjectsFromIndexes:(NSSet*)fromIndexes toIndexPath:(NSIndexPath *)path
@@ -135,7 +145,13 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 
 - (NSIndexSet*)indexesAsIndexSet:(NSSet*)indexes
 {
-    return nil;
+    NSMutableIndexSet* result = [NSMutableIndexSet new];
+    for (NSIndexPath* path in indexes)
+    {
+        [result addIndex:[path indexAtPosition:0]];
+    }
+    
+    return result;
 }
 @end
 

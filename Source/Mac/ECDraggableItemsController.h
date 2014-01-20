@@ -6,7 +6,7 @@
 
 @protocol ECDraggableItemContentController <NSObject>
 - (NSArray*)itemsAtIndexes:(NSSet*)indexes;
-- (BOOL)setSelectionIndexes:(NSSet*)indexes;
+- (BOOL)setSelection:(NSSet*)indexes;
 - (NSSet*)moveObjectsFromIndexes:(NSSet*)fromIndexSet toIndexPath:(NSIndexPath*)path;
 @end
 

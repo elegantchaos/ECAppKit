@@ -72,7 +72,7 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
     return result;
 }
 
-- (BOOL)setSelectionIndexes:(NSSet *)indexes
+- (BOOL)setSelection:(NSSet *)indexes
 {
     return [self setSelectionIndexPaths:[indexes allObjects]];
 }

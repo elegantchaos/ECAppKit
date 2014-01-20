@@ -10,7 +10,7 @@
 @implementation ECDraggableFileArrayController
 
      
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSTableView*)tableView
+-(ECDraggableItemsController*)makeItemsControllerForView:(NSView*)tableView
 {
     return [ECDraggableFileItemsController itemsControllerForContentController:self view:tableView];
 }
