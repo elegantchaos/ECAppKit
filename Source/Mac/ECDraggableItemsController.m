@@ -9,6 +9,7 @@
 NSString *const ItemIndexesType = @"com.elegantchaos.ecappkit.rowindexes";
 
 @interface ECDraggableItemsController()
+@property (strong, nonatomic) NSSet* sourceIndexes;
 @end
 
 @implementation ECDraggableItemsController
@@ -150,27 +151,52 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
     return NO;
 }
 
+- (BOOL)destination:(NSIndexPath*)destination containsIndexes:(NSSet*)indexes
+{
+    BOOL result = NO;
+    NSUInteger destinationLength = destination.length;
+    for (NSIndexPath* path in indexes)
+    {
+        NSUInteger pathLength = path.length;
+        if (pathLength < destinationLength)
+        {
+            // if the item is being copied into itself, the whole path will match the destination path - we shouldn't allow this
+            result = YES;
+            for (NSUInteger n = 0; n < pathLength; ++n)
+            {
+                if ([path indexAtPosition:n] != [destination indexAtPosition:n])
+                {
+                    result = NO;
+                    break;
+                }
+            }
+        }
+        
+        if (result)
+            break;
+    }
+    
+    return result;
+}
+
 - (NSDragOperation)validateDrop:(id <NSDraggingInfo>)info proposedIndex:(NSIndexPath *)proposedIndex view:(NSView *)view
 {
 	ECDebug(ECDraggableItemsControllerChannel, @"validate drop");
     
-    // by default we do a copy
-    BOOL isCopy = [self dragIsCopyForView:view info:info];
-    NSDragOperation dragOp = isCopy ? NSDragOperationCopy : NSDragOperationMove;
+    NSDragOperation result = NSDragOperationNone;
+    if (![self destination:proposedIndex containsIndexes:self.sourceIndexes])
+    {
+        BOOL isCopy = [self dragIsCopyForView:view info:info];
+        result = isCopy ? NSDragOperationCopy : NSDragOperationMove;
+    }
     
-    return dragOp;
+    return result;
 }
 
 - (BOOL)acceptDrop:(id <NSDraggingInfo>)info index:(NSIndexPath *)index view:(NSView *)view
 {
 	ECDebug(ECDraggableItemsControllerChannel, @"accept drop");
 	
-    // TODO: validate path
-//    if (index < 0)
-//    {
-//		index = 0;
-//	}
-    
     NSPasteboard* pasteboard = [info draggingPasteboard];
     if (![self dragIsCopyForView:view info:info])
     {
@@ -194,6 +220,7 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 
 - (BOOL)writeItemsWithIndexes:(NSSet*)indexes toPasteboard:(NSPasteboard*)pasteboard view:(NSView *)view
 {
+    self.sourceIndexes = indexes;
     NSArray* types = [self typesToDragForIndexes:indexes];
     [pasteboard declareTypes:types owner:self];
     for (NSString* type in types)

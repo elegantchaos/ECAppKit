@@ -7,6 +7,8 @@
 #import "ECDraggableTreeController.h"
 #import "ECDraggableItemsController.h"
 
+ECDefineDebugChannel(ECDraggableTreeControllerChannel);
+
 @implementation ECDraggableTreeController
 
 - (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal
@@ -29,14 +31,14 @@
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView acceptDrop:(id <NSDraggingInfo>)info item:(id)item childIndex:(NSInteger)index
 {
-    NSIndexPath* path = [item indexPath];
+    NSIndexPath* path = item ? [item indexPath] : [NSIndexPath new];
     NSIndexPath* childPath = [path indexPathByAddingIndex:index];
     return [self.itemsController acceptDrop:info index:childPath view:outlineView];
 }
 
 - (NSDragOperation)outlineView:(NSOutlineView *)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)index
 {
-    NSIndexPath* path = [item indexPath];
+    NSIndexPath* path = item ? [item indexPath] : [NSIndexPath new];
     NSIndexPath* childPath = [path indexPathByAddingIndex:index];
     NSDragOperation result = [self.itemsController validateDrop:info proposedIndex:childPath view:outlineView];
 
@@ -48,6 +50,7 @@
     if (!_itemsController)
     {
         _itemsController = [ECDraggableItemsController itemsControllerForContentController:self view:outlineView];
+        ECDebug(ECDraggableTreeControllerChannel, @"created items controller %@", _itemsController);
     }
 
     NSCell* result = [tableColumn dataCell];
@@ -69,17 +72,15 @@
     return result;
 }
 
-- (BOOL)setSelectionIndexes:(NSIndexSet *)indexes
+- (BOOL)setSelectionIndexes:(NSSet *)indexes
 {
-//    return [super setSelectionIndexPaths:[indexes ]]
-    return YES;
+    return [self setSelectionIndexPaths:[indexes allObjects]];
 }
 
 - (NSSet*)moveObjectsFromIndexes:(NSSet *)fromIndexSet toIndexPath:(NSIndexPath *)path
 {
-//    NSArray *objectsToMove = [[self arrangedObjects] objectsAtIndexes:fromIndexSet];
-//	[self removeObjectsAtArrangedObjectIndexes:fromIndexSet];
-//	[self insertObjects:objectsToMove atArrangedObjectIndexes:destinationIndexes];
+    NSArray* nodes = [self itemsAtIndexes:fromIndexSet];
+    [self moveNodes:nodes toIndexPath:path];
     return nil;
 }
 
