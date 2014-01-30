@@ -55,7 +55,8 @@ ECDefineDebugChannel(ECDraggableFileItemsControllerChannel);
         for (id item in items)
         {
 			NSString* itemType = [self typeOfItem:item];
-            [types addObject:itemType];
+            if (itemType)
+                [types addObject:itemType];
         }
         
         [pasteboard setPropertyList:types forType:NSFilesPromisePboardType];
