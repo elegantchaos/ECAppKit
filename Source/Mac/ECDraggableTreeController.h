@@ -9,7 +9,7 @@
 @interface ECDraggableTreeController : NSTreeController<NSOutlineViewDelegate, ECDraggableItemContentController>
 @property (strong, nonatomic) ECDraggableItemsController* itemsController;
 
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSOutlineView*)outlineView;
+-(ECDraggableItemsController*)makeItemsControllerForView:(NSView*)view;
 
 @end
 

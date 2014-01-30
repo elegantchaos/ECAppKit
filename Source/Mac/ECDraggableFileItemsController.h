@@ -10,7 +10,7 @@
 
 - (NSString*)typeOfItem:(id)item;
 - (NSString*)makeFileFromItem:(id)item atDestination:(NSURL*)url;
-- (BOOL)addFiles:(NSArray*)files atIndex:(NSInteger)index;
+- (BOOL)addFiles:(NSArray*)files atIndex:(NSIndexPath*)index;
 - (NSArray*)namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedRowsWithIndexes:(NSSet*)indexes view:(NSView*)view;
 
 @end

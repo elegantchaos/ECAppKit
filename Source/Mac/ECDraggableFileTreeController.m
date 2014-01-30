@@ -9,16 +9,19 @@
 
 @implementation ECDraggableFileTreeController
 
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSOutlineView*)outlineView
+-(ECDraggableItemsController*)makeItemsControllerForView:(NSView*)view
 {
-    return [ECDraggableFileItemsController itemsControllerForContentController:self view:outlineView];
+    return [ECDraggableFileItemsController itemsControllerForContentController:self view:view];
 }
 
 - (NSArray *)outlineView:(NSOutlineView *)outlineView namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination forDraggedItems:(NSArray *)items
 {
+    NSArray* paths = [items valueForKey:@"indexPath"];
+    NSSet* indexes = [NSSet setWithArray:paths];
+
     ECDraggableFileItemsController* itemsController = (ECDraggableFileItemsController*)self.itemsController;
-    [itemsController namesOfPromisedFilesDroppedAtDestination:dropDestination forDraggedRowsWithIndexes:[NSSet setWithArray:items] view:outlineView];
-    return nil;
+    NSArray* result = [itemsController namesOfPromisedFilesDroppedAtDestination:dropDestination forDraggedRowsWithIndexes:indexes view:outlineView];
+    return result;
 }
 
 @end

@@ -89,14 +89,14 @@ ECDefineDebugChannel(ECDraggableFileItemsControllerChannel);
 //! Perform a remote copy of files from elsewhere.
 // --------------------------------------------------------------------------
 
-- (BOOL)performRemoteCopyToIndex:(NSUInteger)index withPasteboard:(NSPasteboard*)pasteboard
+- (BOOL)performRemoteCopyToIndex:(NSIndexPath*)index withPasteboard:(NSPasteboard*)pasteboard
 {
     NSArray* classes = [NSArray arrayWithObject:[NSURL class]];
     NSDictionary* options = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:NSPasteboardURLReadingFileURLsOnlyKey];
     NSArray* urls = [pasteboard readObjectsForClasses:classes options:options];
     ECDebug(ECDraggableFileItemsControllerChannel, @"received urls %@", urls);
 	BOOL result = [self addFiles:urls atIndex:index];
-    
+
     return result;
 }
 
@@ -125,7 +125,7 @@ ECDefineDebugChannel(ECDraggableFileItemsControllerChannel);
 //! Subclasses should override this.
 // --------------------------------------------------------------------------
 
-- (BOOL)addFiles:(NSArray*)files atIndex:(NSInteger)index
+- (BOOL)addFiles:(NSArray*)files atIndex:(NSIndexPath*)index
 {
 	return YES;
 }

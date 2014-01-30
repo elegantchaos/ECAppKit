@@ -8,6 +8,7 @@
 - (NSArray*)itemsAtIndexes:(NSSet*)indexes;
 - (BOOL)setSelection:(NSSet*)indexes;
 - (NSSet*)moveObjectsFromIndexes:(NSSet*)fromIndexSet toIndexPath:(NSIndexPath*)path;
+- (void)insertObjects:(NSArray*)objects atIndexPath:(NSIndexPath*)path;
 - (NSSet*)indexesOfItemsAtIndexes:(NSSet*)indexes thatCanWriteType:(NSString*)type;
 @end
 

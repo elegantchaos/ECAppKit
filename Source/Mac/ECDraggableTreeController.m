@@ -16,11 +16,6 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
 	return NSDragOperationMove;
 }
 
--(ECDraggableItemsController*)makeItemsControllerForTableView:(NSOutlineView*)outlineView
-{
-    return [ECDraggableItemsController itemsControllerForContentController:self view:outlineView];
-}
-
 - (BOOL)outlineView:(NSOutlineView *)outlineView writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pasteboard
 {
     NSArray* paths = [items valueForKey:@"indexPath"];
@@ -33,7 +28,9 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
 {
     NSIndexPath* path = item ? [item indexPath] : [NSIndexPath new];
     NSIndexPath* childPath = [path indexPathByAddingIndex:index];
-    return [self.itemsController acceptDrop:info index:childPath view:outlineView];
+    BOOL result = [self.itemsController acceptDrop:info index:childPath view:outlineView];
+    
+    return result;
 }
 
 - (NSDragOperation)outlineView:(NSOutlineView *)outlineView validateDrop:(id <NSDraggingInfo>)info proposedItem:(id)item proposedChildIndex:(NSInteger)index
@@ -45,16 +42,34 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
     return result;
 }
 
+- (ECDraggableItemsController*)makeItemsControllerForView:(NSView*)view
+{
+    return [ECDraggableItemsController itemsControllerForContentController:self view:view];
+}
+
 - (NSCell *)outlineView:(NSOutlineView *)outlineView dataCellForTableColumn:(NSTableColumn *)tableColumn item:(NSTreeNode*)item
 {
     if (!_itemsController)
     {
-        _itemsController = [ECDraggableItemsController itemsControllerForContentController:self view:outlineView];
+        _itemsController = [self makeItemsControllerForView:outlineView];
         ECDebug(ECDraggableTreeControllerChannel, @"created items controller %@", _itemsController);
     }
 
     NSCell* result = [tableColumn dataCell];
     result.representedObject = [item representedObject];
+    
+    return result;
+}
+
+- (NSArray*)nodesAtIndexes:(NSSet *)indexes
+{
+    NSMutableArray* result = [NSMutableArray array];
+    id objects = self.arrangedObjects;
+    for (NSIndexPath* path in indexes)
+    {
+        NSTreeNode* object = [objects descendantNodeAtIndexPath:path];
+        [result addObject:object];
+    }
     
     return result;
 }
@@ -65,8 +80,8 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
     id objects = self.arrangedObjects;
     for (NSIndexPath* path in indexes)
     {
-        id object = [objects descendantNodeAtIndexPath:path];
-        [result addObject:object];
+        NSTreeNode* object = [objects descendantNodeAtIndexPath:path];
+        [result addObject:object.representedObject];
     }
     
     return result;
@@ -75,15 +90,13 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
 - (NSSet*)indexesOfItemsAtIndexes:(NSSet *)indexes thatCanWriteType:(NSString *)type
 {
     NSMutableSet* result = [NSMutableSet new];
-    NSArray* nodes = [self itemsAtIndexes:indexes];
+    NSArray* nodes = [self nodesAtIndexes:indexes];
     for (NSTreeNode* node in nodes)
     {
-        BOOL addNode = YES;
-        if ([node.representedObject respondsToSelector:@selector(canWriteType:)])
-            addNode = [node.representedObject canWriteType:type];
-        
-        if (addNode)
-            [result addObject:node.indexPath];
+        id item = node.representedObject;
+        if ([item respondsToSelector:@selector(canWriteType:)])
+            if ([item canWriteType:type])
+                [result addObject:node.indexPath];
     }
     
     return result;
@@ -96,10 +109,23 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
 
 - (NSSet*)moveObjectsFromIndexes:(NSSet *)fromIndexSet toIndexPath:(NSIndexPath *)path
 {
-    NSArray* nodes = [self itemsAtIndexes:fromIndexSet];
+    NSArray* nodes = [self nodesAtIndexes:fromIndexSet];
     [self moveNodes:nodes toIndexPath:path];
     return nil;
 }
 
+- (void)insertObjects:(NSArray*)objects atIndexPath:(NSIndexPath*)path
+{
+    NSIndexPath* basePath = [path indexPathByRemovingLastIndex];
+    NSUInteger index = [path indexAtPosition:[path length] - 1];
+    NSMutableArray* newIndexes = [NSMutableArray new];
+    for (id newItem in objects)
+    {
+        (void)newItem;
+        NSIndexPath* itemPath = [basePath indexPathByAddingIndex:index++];
+        [newIndexes addObject:itemPath];
+    }
+    [self insertObjects:objects atArrangedObjectIndexPaths:newIndexes];
+}
 
 @end

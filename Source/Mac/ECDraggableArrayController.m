@@ -121,6 +121,11 @@ ECDefineDebugChannel(ECDraggableArrayControllerChannel);
 	return result;
 }
 
+- (void)insertObjects:(NSArray *)objects atIndexPath:(NSIndexPath *)path
+{
+//    - (void)insertObjects:(NSArray *)objects atArrangedObjectIndexes:(NSIndexSet *)indexes;
+}
+
 - (NSArray*)itemsAtIndexes:(NSSet*)indexes
 {
     NSIndexSet* indexSet = [self indexesAsIndexSet:indexes];

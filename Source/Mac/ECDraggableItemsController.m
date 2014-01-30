@@ -18,7 +18,7 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 
 + (ECDraggableItemsController*)itemsControllerForContentController:(id<ECDraggableItemContentController>)contentController view:(id)view
 {
-    ECDraggableItemsController* controller = [ECDraggableItemsController new];
+    ECDraggableItemsController* controller = [self new];
     controller.contentController = contentController;
     [controller setupView:view];
     
@@ -198,18 +198,21 @@ ECDefineDebugChannel(ECDraggableItemsControllerChannel);
 	ECDebug(ECDraggableItemsControllerChannel, @"accept drop");
 	
     NSPasteboard* pasteboard = [info draggingPasteboard];
+    BOOL result = NO;
     if (![self dragIsCopyForView:view info:info])
     {
-        return [self performMoveToIndex:index withPasteboard:pasteboard];
+        result = [self performMoveToIndex:index withPasteboard:pasteboard];
     }
     else if (view == [info draggingSource])
     {
-        return [self performLocalCopyToIndex:index withPasteboard:pasteboard];
+        result = [self performLocalCopyToIndex:index withPasteboard:pasteboard];
     }
     else
     {
-        return [self performRemoteCopyToIndex:index withPasteboard:pasteboard];
+        result = [self performRemoteCopyToIndex:index withPasteboard:pasteboard];
     }
+    
+    return result;
 }
 
 
