@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------
 //! @date 12/08/2011.
 //
-//  Copyright 2013 Sam Deane, Elegant Chaos. All rights reserved.
+//  Copyright 2014 Sam Deane, Elegant Chaos. All rights reserved.
 // --------------------------------------------------------------------------
 
 #import "ECCompletionTextView.h"
