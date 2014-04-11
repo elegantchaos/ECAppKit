@@ -54,7 +54,7 @@
 		2204C83415E282BB00F71E15 /* ECWhiteBorderButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2204C7F815E282BB00F71E15 /* ECWhiteBorderButtonCell.m */; };
 		222D9D4F18896E8F005B9E40 /* ECPlaceholderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 222D9D4D18896E8F005B9E40 /* ECPlaceholderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		222D9D5018896E8F005B9E40 /* ECPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 222D9D4E18896E8F005B9E40 /* ECPlaceholderView.m */; };
-		223D7616188C480A005317E5 /* ECDraggableFileArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D760E188C480A005317E5 /* ECDraggableFileArrayController.h */; };
+		223D7616188C480A005317E5 /* ECDraggableFileArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D760E188C480A005317E5 /* ECDraggableFileArrayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		223D7617188C480A005317E5 /* ECDraggableFileArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D760F188C480A005317E5 /* ECDraggableFileArrayController.m */; };
 		223D7618188C480A005317E5 /* ECDraggableItemsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7610188C480A005317E5 /* ECDraggableItemsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		223D7619188C480A005317E5 /* ECDraggableItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D7611188C480A005317E5 /* ECDraggableItemsController.m */; };
@@ -64,7 +64,7 @@
 		223D761F188C53A7005317E5 /* ECDraggableFileTreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D761D188C53A7005317E5 /* ECDraggableFileTreeController.m */; };
 		223D7622188C5406005317E5 /* ECDraggableFileItemsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7620188C5406005317E5 /* ECDraggableFileItemsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		223D7623188C5406005317E5 /* ECDraggableFileItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D7621188C5406005317E5 /* ECDraggableFileItemsController.m */; };
-		223D7626188C59E5005317E5 /* ECDraggableArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7624188C59E5005317E5 /* ECDraggableArrayController.h */; };
+		223D7626188C59E5005317E5 /* ECDraggableArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 223D7624188C59E5005317E5 /* ECDraggableArrayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		223D7627188C59E5005317E5 /* ECDraggableArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223D7625188C59E5005317E5 /* ECDraggableArrayController.m */; };
 		224E132D16C15051003DCB9D /* ECPreferencesWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224E132C16C15051003DCB9D /* ECPreferencesWindow.framework */; };
 		224E133216C15231003DCB9D /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E85D8415E42E7C00E67F50 /* libcrypto.dylib */; };
