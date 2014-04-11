@@ -72,7 +72,6 @@ ECDefineDebugChannel(PlaceholderViewChannel);
         NSLayoutConstraint* newConstraint = [NSLayoutConstraint constraintWithItem:firstItem attribute:firstAttribute relatedBy:relation toItem:secondItem attribute:secondAttribute multiplier:multiplier constant:constant];
         [superview addConstraint:newConstraint];
     }
-    ECDebug(PlaceholderViewChannel, @"Replaced placholder with actual view controlled by %@", self.replacementController);
     
     for (NSLayoutConstraint* c in self.constraints)
     {
@@ -85,6 +84,8 @@ ECDefineDebugChannel(PlaceholderViewChannel);
         [replacementView addConstraint:[NSLayoutConstraint constraintWithItem:firstItem attribute:c.firstAttribute relatedBy:c.relation toItem:secondItem attribute:c.secondAttribute multiplier:c.multiplier constant:c.constant]];
     }
     
+    ECDebug(PlaceholderViewChannel, @"Replaced placholder with actual view controlled by %@", self.replacementController);
+
     if ([self.replacementController respondsToSelector:@selector(view:didReplacePlaceholder:)])
         [self.replacementController view:replacementView didReplacePlaceholder:self];
 }
