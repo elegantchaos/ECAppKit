@@ -74,6 +74,17 @@ ECDefineDebugChannel(PlaceholderViewChannel);
     }
     ECDebug(PlaceholderViewChannel, @"Replaced placholder with actual view controlled by %@", self.replacementController);
     
+    for (NSLayoutConstraint* c in self.constraints)
+    {
+        id firstItem = c.firstItem;
+        if (firstItem == self)
+            firstItem = replacementView;
+        id secondItem = c.secondItem;
+        if (secondItem == self)
+            secondItem = replacementView;
+        [replacementView addConstraint:[NSLayoutConstraint constraintWithItem:firstItem attribute:c.firstAttribute relatedBy:c.relation toItem:secondItem attribute:c.secondAttribute multiplier:c.multiplier constant:c.constant]];
+    }
+    
     if ([self.replacementController respondsToSelector:@selector(view:didReplacePlaceholder:)])
         [self.replacementController view:replacementView didReplacePlaceholder:self];
 }
