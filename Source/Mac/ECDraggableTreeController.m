@@ -11,10 +11,13 @@ ECDefineDebugChannel(ECDraggableTreeControllerChannel);
 
 @implementation ECDraggableTreeController
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal
 {
 	return NSDragOperationMove;
 }
+#pragma clang diagnostic pop
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView writeItems:(NSArray *)items toPasteboard:(NSPasteboard *)pasteboard
 {
